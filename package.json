@@ -1,0 +1,30 @@
+{
+  "name": "fantastic-tweet",
+  "description": "A Twitter-like application",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start:client": "npm run start --workspace=client",
+    "start:server": "npm run start --workspace=server",
+    "install:all": "npm install && npm install --workspace=client && npm install --workspace=server",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
+    "build": "npm run build --workspaces",
+    "clean": "npm run clean --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "Pedro Bittencourt",
+  "keywords": [
+    "twitter",
+    "social-media",
+    "fullstack"
+  ]
+}
