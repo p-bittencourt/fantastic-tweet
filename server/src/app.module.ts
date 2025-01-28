@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { CharactersModule } from './modules/characters/characters.module';
+import { ThreadsModule } from './modules/threads/threads.module';
 
 @Module({
   imports: [
@@ -11,8 +11,8 @@ import { ThrottlerModule } from '@nestjs/throttler';
     //     limit: 10,
     //   },
     // ]),
+    CharactersModule,
+    ThreadsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}

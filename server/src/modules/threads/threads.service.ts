@@ -1,11 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { CreateThreadDto } from './dto/create-thread.dto';
 import { UpdateThreadDto } from './dto/update-thread.dto';
+import { LlmService } from './llm.service';
+import { sampleCharacters } from '../characters/samples/character.sample';
 
 @Injectable()
 export class ThreadsService {
-  create(createThreadDto: CreateThreadDto) {
-    return 'This action adds a new thread';
+  constructor(private llmService: LlmService) {}
+  async create(createThreadDto: CreateThreadDto) {
+    const character = sampleCharacters[1];
+    const prompt = await this.llmService.createInitialPost(
+      'Technological Advancements',
+      character,
+    );
+    console.log('character', character);
+    console.log('prompt', prompt);
+    return;
   }
 
   findAll() {

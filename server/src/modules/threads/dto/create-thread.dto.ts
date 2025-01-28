@@ -1,1 +1,4 @@
-export class CreateThreadDto {}
+export class CreateThreadDto {
+  topic: string;
+  characterId: string;
+}
