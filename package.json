@@ -26,5 +26,9 @@
     "twitter",
     "social-media",
     "fullstack"
-  ]
+  ],
+  "dependencies": {
+    "@nestjs/throttler": "^6.4.0",
+    "helmet": "^8.0.0"
+  }
 }
