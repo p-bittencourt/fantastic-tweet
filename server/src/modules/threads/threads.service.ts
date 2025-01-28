@@ -9,12 +9,11 @@ export class ThreadsService {
   constructor(private llmService: LlmService) {}
   async create(createThreadDto: CreateThreadDto) {
     const character = sampleCharacters[1];
-    const prompt = await this.llmService.createInitialPost(
+    const output = await this.llmService.createInitialPost(
       'Technological Advancements',
       character,
     );
-    console.log('character', character);
-    console.log('prompt', prompt);
+    console.log('output', output);
     return;
   }
 
