@@ -34,14 +34,16 @@ export class GeminiService {
   constructor(@Inject(GEMINI_MODEL) private readonly model: GenerativeModel) {}
   async generateThread(topic: string, characters: ICharacter[]) {
     try {
-      const initialPost = await this.createInitialPost(topic, characters[0]);
-      this.logger.debug('formatted initial post:', initialPost);
-      // const reaction = await this.reactToPost(
-      //   initialPost[0],
-      //   characters[0],
-      //   characters[1],
-      // );
-      // this.logger.debug('Reaction', reaction);
+      // const initialPost = await this.createInitialPost(topic, characters[0]);
+      // this.logger.debug('formatted initial post:', initialPost);
+
+      const sampleThread = await this.toJsonSampleInitialThread();
+      const reaction = await this.reactToPost(
+        sampleThread[0],
+        characters[0],
+        characters[1],
+      );
+      this.logger.debug('Reaction', reaction);
     } catch (error) {
       this.logger.error(`Failed to generat thread: ${error.message}`);
       throw new GeminiException('Failed to generate thread content');
@@ -136,7 +138,12 @@ export class GeminiService {
     const output = await this.model.generateContent(prompt);
     const response = output.response;
     const text = response.text();
-    return text;
+    const formattedResponse = this.formatReaction(
+      text,
+      post,
+      reactingCharacter,
+    );
+    return formattedResponse;
   }
 
   private async testReactToPost(
@@ -236,5 +243,21 @@ export class GeminiService {
       this.logger.error(`Failed to format thread: ${error.message}`);
       throw new GeminiException('Failed to format thread');
     }
+  }
+
+  private async toJsonSampleInitialThread(): Promise<Post[]> {
+    const projectRoot = process.cwd();
+    const samplePath = join(
+      projectRoot,
+      'src',
+      'modules',
+      'threads',
+      'gemini',
+      'samples',
+      'formatted-initial-thread.txt',
+    );
+    const sampleFormattedThread = await fs.readFile(samplePath, 'utf-8');
+    const jsonThread: Post[] = JSON.parse(sampleFormattedThread);
+    return jsonThread;
   }
 }

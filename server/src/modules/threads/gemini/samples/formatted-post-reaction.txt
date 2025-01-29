@@ -1,0 +1,10 @@
+{
+  "author": "",
+  "content": "The Force is strong with technology, isn't it?  Seeing what's possible with droids and hyperspace travel...it gives me hope for the future of the galaxy.  We can use these advancements for good! #HopeForTheFuture #NewRepublic #TechForGood",
+  "likes": 0,
+  "shares": 0,
+  "reaction": [
+    "Hermione Granger",
+    "Fascinating!  A 'post' that's...object-oriented?  Reminds me of those complex charms we had to master in seventh year.  Perhaps there's a magical explanation for this 'object'  🤔.  #TheForceIsStrongWithThisOne #DataIsMagic"
+  ]
+}
