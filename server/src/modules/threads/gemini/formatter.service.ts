@@ -14,24 +14,26 @@ export class FormatterService {
       .trim();
   }
 
-  formatReaction(
-    reaction: string,
-    originalPost: Post,
-    reactingCharacter: ICharacter,
-  ): Post {
+  formatReaction(reaction: string, author: string): Reaction {
     try {
       const cleanInput = this.cleanMarkdownFormatting(reaction);
       const jsonReaction: Reaction = JSON.parse(cleanInput);
-      // TODO: properly add the likes and shares to the post
-      if (jsonReaction.like === 'true') originalPost.likes++;
-      if (jsonReaction.share === 'true') originalPost.shares++;
-
-      originalPost.reaction.push(reactingCharacter.name, jsonReaction.reaction);
-      return originalPost;
+      jsonReaction.author = author;
+      return jsonReaction;
     } catch (error) {
       this.logger.error(`Failed to format post reaction: ${error.message}`);
       throw new GeminiException('Failed to format post reaction');
     }
+  }
+
+  asyncAddLikesAndShares(reaction: Reaction, post: Post): Post {
+    if (reaction.like === true) {
+      post.likes++;
+    }
+    if (reaction.share === true) {
+      post.shares++;
+    }
+    return post;
   }
 
   formatInitialThread(thread: string, characterName: string): Post[] {

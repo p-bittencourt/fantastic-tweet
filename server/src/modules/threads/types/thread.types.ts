@@ -1,8 +1,8 @@
 export interface Reaction {
   author: string;
   reaction: string;
-  like: string;
-  share: string;
+  like: boolean;
+  share: boolean;
 }
 
 export interface Post {

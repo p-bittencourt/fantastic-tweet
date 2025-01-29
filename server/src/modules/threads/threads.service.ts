@@ -10,9 +10,9 @@ export class ThreadsService {
   constructor(private geminiService: GeminiService) {}
   async create(createThreadDto: CreateThreadDto) {
     try {
-      const characters = [sampleCharacters[2], sampleCharacters[3]];
+      const characters = [sampleCharacters[4], sampleCharacters[5]];
       const output = await this.geminiService.generateThread(
-        'Technological Advancements',
+        'Climate Change',
         characters,
       );
       return;

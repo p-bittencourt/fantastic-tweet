@@ -5,7 +5,7 @@ import { GEMINI_MODEL } from './gemini.provider';
 import { promises as fs } from 'fs';
 import { join } from 'path';
 import { GeminiException } from 'src/common/exceptions/gemini.exception';
-import { Post } from '../types/thread.types';
+import { Post, Reaction } from '../types/thread.types';
 import { FormatterService } from './formatter.service';
 import { PromptService } from './prompt.service';
 
@@ -69,6 +69,7 @@ export class GeminiService {
     originalCharacter: ICharacter,
     reactingCharacter: ICharacter,
   ): Promise<Post> {
+    // Generates the output from the prompt
     const prompt = this.promptService.createReactionPrompt(
       post,
       originalCharacter,
@@ -77,16 +78,27 @@ export class GeminiService {
     const output = await this.model.generateContent(prompt);
     const response = output.response;
     const text = response.text();
-    const formattedResponse = this.formatter.formatReaction(
+
+    // Formats reaction into JSON
+    const formattedResponse: Reaction = this.formatter.formatReaction(
       text,
-      post,
-      reactingCharacter,
+      reactingCharacter.name,
     );
-    return formattedResponse;
+
+    // Updates the post with the reaction data
+    const updatedPost = this.formatter.asyncAddLikesAndShares(
+      formattedResponse,
+      post,
+    );
+    updatedPost.reaction.push(
+      formattedResponse.author,
+      formattedResponse.reaction,
+    );
+    return updatedPost;
   }
 
   /**
-   * Some functions used for tests. These avoid making calls to the Gemini API
+   * Some functions used for tests. These avoid making calls to the Gemini API.
    */
   //#region
   private async testCreateInitialThread(): Promise<Post[]> {
@@ -130,10 +142,10 @@ export class GeminiService {
         'reaction.txt',
       );
       const sampleContent = await fs.readFile(samplePath, 'utf-8');
+      // TODO: check if this still works after alterations to formatReaction
       const formattedContent = this.formatter.formatReaction(
         sampleContent,
-        samplePost,
-        reactingCharacter,
+        reactingCharacter.name,
       );
       return formattedContent;
     } catch (error) {
