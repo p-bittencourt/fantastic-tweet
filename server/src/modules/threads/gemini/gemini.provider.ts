@@ -8,7 +8,7 @@ export const GeminiModel: Provider<GenerativeModel> = {
   provide: GEMINI_MODEL,
   useFactory: () => {
     const genAi = new GoogleGenerativeAI(env.GEMINI.KEY);
-    const model = genAi.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAi.getGenerativeModel({ model: env.GEMINI.MODEL });
     return model;
   },
 };

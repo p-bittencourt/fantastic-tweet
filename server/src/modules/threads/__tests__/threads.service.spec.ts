@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ThreadsService } from './threads.service';
+import { ThreadsService } from '../threads.service';
 
 describe('ThreadsService', () => {
   let service: ThreadsService;

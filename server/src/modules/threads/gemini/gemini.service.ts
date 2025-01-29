@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ICharacter } from '../characters/types/character.type';
-import { GenerativeModel, GoogleGenerativeAI } from '@google/generative-ai';
+import { ICharacter } from '../../characters/types/character.type';
+import { GenerativeModel } from '@google/generative-ai';
 import { GEMINI_MODEL } from './gemini.provider';
 
 @Injectable()
-export class LlmService {
+export class GeminiService {
   constructor(@Inject(GEMINI_MODEL) private readonly model: GenerativeModel) {}
   async createInitialPost(topic: string, character: ICharacter) {
     const prompt = `
@@ -25,7 +25,8 @@ export class LlmService {
       Format your response as JSON:
       { 
         "post1": string,
-        "post2": string
+        "post2": string,
+        ...
       } 
     `;
 

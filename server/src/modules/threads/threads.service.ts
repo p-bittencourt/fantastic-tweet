@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { CreateThreadDto } from './dto/create-thread.dto';
 import { UpdateThreadDto } from './dto/update-thread.dto';
-import { LlmService } from './llm.service';
+import { GeminiService } from './gemini/gemini.service';
 import { sampleCharacters } from '../characters/samples/character.sample';
 
 @Injectable()
 export class ThreadsService {
-  constructor(private llmService: LlmService) {}
+  constructor(private geminiService: GeminiService) {}
   async create(createThreadDto: CreateThreadDto) {
     const character = sampleCharacters[1];
-    const output = await this.llmService.createInitialPost(
+    const output = await this.geminiService.createInitialPost(
       'Technological Advancements',
       character,
     );

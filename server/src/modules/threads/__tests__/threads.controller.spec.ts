@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ThreadsController } from './threads.controller';
-import { ThreadsService } from './threads.service';
+import { ThreadsController } from '../threads.controller';
+import { ThreadsService } from '../threads.service';
 
 describe('ThreadsController', () => {
   let controller: ThreadsController;
