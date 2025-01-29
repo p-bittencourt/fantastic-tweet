@@ -1,6 +1,6 @@
 import { GenerativeModel, GoogleGenerativeAI } from '@google/generative-ai';
 import { Provider } from '@nestjs/common';
-import { env } from 'config/env.config';
+import { env } from 'src/config/env.config';
 
 export const GEMINI_MODEL = 'GEMINI_MODEL';
 

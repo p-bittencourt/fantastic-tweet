@@ -1,9 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ICharacter } from '../../characters/types/character.type';
 import { GenerativeModel } from '@google/generative-ai';
 import { GEMINI_MODEL } from './gemini.provider';
 import { promises as fs } from 'fs';
 import { join } from 'path';
+import { GeminiException } from 'src/common/exceptions/gemini.exception';
 
 export interface Reaction {
   author: string;
@@ -29,19 +30,56 @@ export interface Thread {
 
 @Injectable()
 export class GeminiService {
+  private readonly logger = new Logger(GeminiService.name);
   constructor(@Inject(GEMINI_MODEL) private readonly model: GenerativeModel) {}
   async generateThread(topic: string, characters: ICharacter[]) {
-    const initialPost = await this.createInitialPost(topic, characters[0]);
-    console.log('initial post', initialPost);
-    const reaction = await this.reactToPost(
-      initialPost[0],
-      characters[0],
-      characters[1],
-    );
-    console.log('Reaction', reaction);
+    try {
+      const initialPost = await this.createInitialPost(topic, characters[0]);
+      this.logger.debug('formatted initial post: \n', initialPost);
+      // const reaction = await this.reactToPost(
+      //   initialPost[0],
+      //   characters[0],
+      //   characters[1],
+      // );
+      // this.logger.debug('Reaction', reaction);
+    } catch (error) {
+      this.logger.error(`Failed to generat thread: ${error.message}`);
+      throw new GeminiException('Failed to generate thread content');
+    }
   }
 
   private async createInitialPost(topic: string, character: ICharacter) {
+    try {
+      const prompt = `
+      You are ${character.name} from ${character.universe}.
+      Personality traits: ${character.traits.join(',')}.
+          Write a Twitter/X thread (2-3 connected posts) about ${topic}
+      Each post should be under 280 characters.
+      Maintain your character's unique perspective and speaking style.
+      Include appropriate hashtags if they fit your character's style.
+          Important:
+      - Stay true to the character's known beliefs and values
+      - Write in a conversational, social media friendly tone
+      - Reference events or knowledge that would make sense for your character
+      - Don't break character or reference being an AI
+          Format your response as JSON:
+      {
+        "post1": string,
+        "post2": string,
+        ...
+      }
+    `;
+      const output = await this.model.generateContent(prompt);
+      const response = output.response;
+      const text = response.text();
+      console.log('input received: \n', text);
+      const formattedText = this.formatInitialThread(text);
+      return formattedText;
+    } catch (error) {
+      this.logger.error(`Failed to create initial post: ${error.message}`);
+      throw new GeminiException('Failed to create initial post');
+    }
+    /*
     try {
       const projectRoot = process.cwd();
       const samplePath = join(
@@ -60,34 +98,7 @@ export class GeminiService {
       console.error('Error reading sample file:', error);
       throw error;
     }
-
-    // const prompt = `
-    //   You are ${character.name} from ${character.universe}.
-    //   Personality traits: ${character.traits.join(',')}.
-    //
-    //   Write a Twitter/X thread (2-3 connected posts) about ${topic}
-    //   Each post should be under 280 characters.
-    //   Maintain your character's unique perspective and speaking style.
-    //   Include appropriate hashtags if they fit your character's style.
-    //
-    //   Important:
-    //   - Stay true to the character's known beliefs and values
-    //   - Write in a conversational, social media friendly tone
-    //   - Reference events or knowledge that would make sense for your character
-    //   - Don't break character or reference being an AI
-    //
-    //   Format your response as JSON:
-    //   {
-    //     "post1": string,
-    //     "post2": string,
-    //     ...
-    //   }
-    // `;
-    // const output = await this.model.generateContent(prompt);
-    // const response = output.response;
-    // const text = response.text();
-    // // a helper function to format the output?
-    // return text;
+    */
   }
 
   private async reactToPost(
@@ -156,48 +167,58 @@ export class GeminiService {
     originalPost: Post,
     reactingCharacter: ICharacter,
   ): Post {
-    const jsonReaction: Reaction = JSON.parse(reaction);
-    if (jsonReaction.like === 'true') originalPost.likes++;
-    if (jsonReaction.share === 'true') originalPost.shares++;
+    try {
+      const jsonReaction: Reaction = JSON.parse(reaction);
+      if (jsonReaction.like === 'true') originalPost.likes++;
+      if (jsonReaction.share === 'true') originalPost.shares++;
 
-    originalPost.reaction.push(reactingCharacter.name, jsonReaction.reaction);
-    return originalPost;
+      originalPost.reaction.push(reactingCharacter.name, jsonReaction.reaction);
+      return originalPost;
+    } catch (error) {
+      this.logger.error(`Failed to format post reaction: ${error.message}`);
+      throw new GeminiException('Failed to format post reaction');
+    }
   }
 
   private formatInitialThread(thread: string): Post[] {
-    const jsonThread = JSON.parse(thread);
+    try {
+      const jsonThread = JSON.parse(thread);
 
-    const posts: Post[] = [
-      {
-        author: '',
-        content: jsonThread.post1,
-        likes: 0,
-        shares: 0,
-        reaction: [],
-      },
-      {
-        author: '',
-        content: jsonThread.post2,
-        likes: 0,
-        shares: 0,
-        reaction: [],
-      },
-      {
-        author: '',
-        content: jsonThread.post3,
-        likes: 0,
-        shares: 0,
-        reaction: [],
-      },
-      {
-        author: '',
-        content: jsonThread.post4,
-        likes: 0,
-        shares: 0,
-        reaction: [],
-      },
-    ];
+      const posts: Post[] = [
+        {
+          author: '',
+          content: jsonThread.post1,
+          likes: 0,
+          shares: 0,
+          reaction: [],
+        },
+        {
+          author: '',
+          content: jsonThread.post2,
+          likes: 0,
+          shares: 0,
+          reaction: [],
+        },
+        {
+          author: '',
+          content: jsonThread.post3,
+          likes: 0,
+          shares: 0,
+          reaction: [],
+        },
+        {
+          author: '',
+          content: jsonThread.post4,
+          likes: 0,
+          shares: 0,
+          reaction: [],
+        },
+      ];
 
-    return posts.filter((post) => post.content !== undefined);
+      return posts.filter((post) => post.content !== undefined);
+    } catch (error) {
+      this.logger.error(`Failed to format thread: ${error.message}`);
+      throw new GeminiException('Failed to format thread');
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateThreadDto } from './dto/create-thread.dto';
 import { UpdateThreadDto } from './dto/update-thread.dto';
 import { GeminiService } from './gemini/gemini.service';
@@ -6,14 +6,20 @@ import { sampleCharacters } from '../characters/samples/character.sample';
 
 @Injectable()
 export class ThreadsService {
+  private readonly logger = new Logger(ThreadsService.name);
   constructor(private geminiService: GeminiService) {}
   async create(createThreadDto: CreateThreadDto) {
-    const characters = [sampleCharacters[2], sampleCharacters[3]];
-    const output = await this.geminiService.generateThread(
-      'Technological Advancements',
-      characters,
-    );
-    return;
+    try {
+      const characters = [sampleCharacters[2], sampleCharacters[3]];
+      const output = await this.geminiService.generateThread(
+        'Technological Advancements',
+        characters,
+      );
+      return;
+    } catch (error) {
+      this.logger.error(`Faile to creat thread: ${error.message}`);
+      throw error;
+    }
   }
 
   findAll() {
