@@ -1,0 +1,32 @@
+[
+  {
+    "author": "Luke Skywalker",
+    "content": "The Force is strong with technology, too!  Seeing the advancements since the Empire fell... hyperdrives improving, droids getting smarter... it gives me hope for the future of the galaxy.  We can build a brighter tomorrow, one technological leap at a time! #NewRepublic #Hope #TechForGood",
+    "likes": 0,
+    "shares": 0,
+    "reaction": [
+      "Hermione Granger",
+      "Fascinating, Luke Skywalker!  The parallel between magical advancements and technological progress is striking.  Efficient, sustainable solutions are key, as we've learned even with limited resources.  Perhaps a collaborative approach, sharing knowledge and best practices, could accelerate progress even further? #NewRepublic #TechForGood #Innovation"
+    ]
+  },
+  {
+    "author": "Luke Skywalker",
+    "content": "Remember the Death Star?  A terrifying weapon, built with incredible—and terrifying—power.  We can use that same ingenuity for something better.  Imagine what we could accomplish if we focused on healing and helping instead of destruction. #JediMindset #Innovation #Peace",
+    "likes": 0,
+    "shares": 0,
+    "reaction": [
+      "Hermione Granger",
+      "Excellent point, Luke!  The Death Star's technology, repurposed for good...  think of the possibilities!  We must always strive for progress, not just power.  #JediMindset #Innovation #Peace #AppliedMagic"
+    ]
+  },
+  {
+    "author": "Luke Skywalker",
+    "content": "I've seen firsthand the power of the Force, and the power of technology.  They're both tools.  It's up to us to use them wisely. Let's strive for a galaxy where technology serves life, not the other way around.  May the Force be with our engineers! #TechnologyWithAGoodHeart #BuildingTheFuture #StarWars",
+    "likes": 0,
+    "shares": 0,
+    "reaction": [
+      "Hermione Granger",
+      "Excellent point, Luke Skywalker!  The judicious use of both magic and technology is crucial.  Reminds me a bit of the Ministry's struggles with Muggle advancements.  Let's hope for a future where both serve the greater good! #TechnologyWithAGoodHeart #BuildingTheFuture"
+    ]
+  }
+]

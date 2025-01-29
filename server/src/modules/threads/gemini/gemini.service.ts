@@ -34,23 +34,32 @@ export class GeminiService {
   constructor(@Inject(GEMINI_MODEL) private readonly model: GenerativeModel) {}
   async generateThread(topic: string, characters: ICharacter[]) {
     try {
-      // const initialPost = await this.createInitialPost(topic, characters[0]);
-      // this.logger.debug('formatted initial post:', initialPost);
-
-      const sampleThread = await this.toJsonSampleInitialThread();
-      const reaction = await this.reactToPost(
-        sampleThread[0],
+      const finalThread: Post[] = [];
+      const initialThread = await this.createInitialThread(
+        topic,
         characters[0],
-        characters[1],
       );
-      this.logger.debug('Reaction', reaction);
+      // this.logger.debug('formatted initial post:', initialThread);
+
+      for (let i = 0; i < initialThread.length; i++) {
+        const reaction = await this.reactToPost(
+          initialThread[i],
+          characters[0],
+          characters[1],
+        );
+        finalThread.push(reaction);
+      }
+      this.logger.debug('Final thread', finalThread);
     } catch (error) {
       this.logger.error(`Failed to generat thread: ${error.message}`);
       throw new GeminiException('Failed to generate thread content');
     }
   }
 
-  private async createInitialPost(topic: string, character: ICharacter) {
+  private async createInitialThread(
+    topic: string,
+    character: ICharacter,
+  ): Promise<Post[]> {
     try {
       const prompt = `
       You are ${character.name} from ${character.universe}.
@@ -74,8 +83,7 @@ export class GeminiService {
       const output = await this.model.generateContent(prompt);
       const response = output.response;
       const text = response.text();
-      console.log('input received: \n', text);
-      const formattedText = this.formatInitialThread(text);
+      const formattedText = this.formatInitialThread(text, character.name);
       return formattedText;
     } catch (error) {
       this.logger.error(`Failed to create initial post: ${error.message}`);
@@ -83,7 +91,7 @@ export class GeminiService {
     }
   }
 
-  private async testCreateInitialPost() {
+  private async testCreateInitialThread(): Promise<Post[]> {
     try {
       const projectRoot = process.cwd();
       const samplePath = join(
@@ -96,7 +104,10 @@ export class GeminiService {
         'initial-thread.txt',
       );
       const sampleContent = await fs.readFile(samplePath, 'utf-8');
-      const formattedContent = this.formatInitialThread(sampleContent);
+      const formattedContent = this.formatInitialThread(
+        sampleContent,
+        'Luke Skywalker',
+      );
       return formattedContent;
     } catch (error) {
       console.error('Error reading sample file:', error);
@@ -108,13 +119,13 @@ export class GeminiService {
     post: Post,
     originalCharacter: ICharacter,
     reactingCharacter: ICharacter,
-  ) {
+  ): Promise<Post> {
     const prompt = `
       You are ${reactingCharacter.name} from ${reactingCharacter.universe}.
       Personality traits: ${reactingCharacter.traits.join(',')}.
 
       You are reacting to a post from ${originalCharacter.name}.
-      The post is ${post}.
+      The post is ${post.content}.
 
       You can comment on it, in under 280 characters. 
       Decide if your character likes the post and shares it.
@@ -202,35 +213,35 @@ export class GeminiService {
     }
   }
 
-  private formatInitialThread(thread: string): Post[] {
+  private formatInitialThread(thread: string, characterName: string): Post[] {
     try {
       const cleanInput = this.cleanMarkdownFormatting(thread);
       const jsonThread = JSON.parse(cleanInput);
 
       const posts: Post[] = [
         {
-          author: '',
+          author: characterName,
           content: jsonThread.post1,
           likes: 0,
           shares: 0,
           reaction: [],
         },
         {
-          author: '',
+          author: characterName,
           content: jsonThread.post2,
           likes: 0,
           shares: 0,
           reaction: [],
         },
         {
-          author: '',
+          author: characterName,
           content: jsonThread.post3,
           likes: 0,
           shares: 0,
           reaction: [],
         },
         {
-          author: '',
+          author: characterName,
           content: jsonThread.post4,
           likes: 0,
           shares: 0,
