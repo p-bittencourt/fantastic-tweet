@@ -1,0 +1,5 @@
+{
+  "reaction": "Fascinating, Luke!  The parallels between magical advancements and technological progress are striking.  Efficient, responsible innovation – a concept witches and wizards could certainly learn from!  #Hope #TechForGood #Progress #Balance",
+  "like": true,
+  "share": true
+}

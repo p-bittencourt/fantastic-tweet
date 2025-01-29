@@ -8,7 +8,7 @@ import { sampleCharacters } from '../characters/samples/character.sample';
 export class ThreadsService {
   constructor(private geminiService: GeminiService) {}
   async create(createThreadDto: CreateThreadDto) {
-    const characters = [sampleCharacters[0], sampleCharacters[2]];
+    const characters = [sampleCharacters[2], sampleCharacters[3]];
     const output = await this.geminiService.generateThread(
       'Technological Advancements',
       characters,
