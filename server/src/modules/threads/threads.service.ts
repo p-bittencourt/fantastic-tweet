@@ -8,12 +8,11 @@ import { sampleCharacters } from '../characters/samples/character.sample';
 export class ThreadsService {
   constructor(private geminiService: GeminiService) {}
   async create(createThreadDto: CreateThreadDto) {
-    const character = sampleCharacters[1];
-    const output = await this.geminiService.createInitialPost(
+    const characters = [sampleCharacters[0], sampleCharacters[2]];
+    const output = await this.geminiService.generateThread(
       'Technological Advancements',
-      character,
+      characters,
     );
-    console.log('output', output);
     return;
   }
 
