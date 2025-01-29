@@ -35,7 +35,7 @@ export class GeminiService {
   async generateThread(topic: string, characters: ICharacter[]) {
     try {
       const initialPost = await this.createInitialPost(topic, characters[0]);
-      this.logger.debug('formatted initial post: \n', initialPost);
+      this.logger.debug('formatted initial post:', initialPost);
       // const reaction = await this.reactToPost(
       //   initialPost[0],
       //   characters[0],
@@ -79,7 +79,9 @@ export class GeminiService {
       this.logger.error(`Failed to create initial post: ${error.message}`);
       throw new GeminiException('Failed to create initial post');
     }
-    /*
+  }
+
+  private async testCreateInitialPost() {
     try {
       const projectRoot = process.cwd();
       const samplePath = join(
@@ -98,7 +100,6 @@ export class GeminiService {
       console.error('Error reading sample file:', error);
       throw error;
     }
-    */
   }
 
   private async reactToPost(
@@ -106,30 +107,6 @@ export class GeminiService {
     originalCharacter: ICharacter,
     reactingCharacter: ICharacter,
   ) {
-    try {
-      const projectRoot = process.cwd();
-      const samplePath = join(
-        projectRoot,
-        'src',
-        'modules',
-        'threads',
-        'gemini',
-        'samples',
-        'reaction.txt',
-      );
-      const sampleContent = await fs.readFile(samplePath, 'utf-8');
-      const formattedContent = this.formatReaction(
-        sampleContent,
-        post,
-        reactingCharacter,
-      );
-      return formattedContent;
-    } catch (error) {
-      console.error('Error reading sample file:', error);
-      throw error;
-    }
-
-    /*
     const prompt = `
       You are ${reactingCharacter.name} from ${reactingCharacter.universe}.
       Personality traits: ${reactingCharacter.traits.join(',')}.
@@ -160,15 +137,53 @@ export class GeminiService {
     const response = output.response;
     const text = response.text();
     return text;
-    */
   }
+
+  private async testReactToPost(
+    samplePost: Post,
+    originalCharacter: ICharacter,
+    reactingCharacter: ICharacter,
+  ) {
+    try {
+      const projectRoot = process.cwd();
+      const samplePath = join(
+        projectRoot,
+        'src',
+        'modules',
+        'threads',
+        'gemini',
+        'samples',
+        'reaction.txt',
+      );
+      const sampleContent = await fs.readFile(samplePath, 'utf-8');
+      const formattedContent = this.formatReaction(
+        sampleContent,
+        samplePost,
+        reactingCharacter,
+      );
+      return formattedContent;
+    } catch (error) {
+      console.error('Error reading sample file:', error);
+      throw error;
+    }
+  }
+
+  private cleanMarkdownFormatting(text: string): string {
+    return text
+      .replace(/```json\n?/g, '')
+      .replace(/^json\n?/g, '')
+      .replace(/```\n?/g, '')
+      .trim();
+  }
+
   private formatReaction(
     reaction: string,
     originalPost: Post,
     reactingCharacter: ICharacter,
   ): Post {
     try {
-      const jsonReaction: Reaction = JSON.parse(reaction);
+      const cleanInput = this.cleanMarkdownFormatting(reaction);
+      const jsonReaction: Reaction = JSON.parse(cleanInput);
       if (jsonReaction.like === 'true') originalPost.likes++;
       if (jsonReaction.share === 'true') originalPost.shares++;
 
@@ -182,7 +197,8 @@ export class GeminiService {
 
   private formatInitialThread(thread: string): Post[] {
     try {
-      const jsonThread = JSON.parse(thread);
+      const cleanInput = this.cleanMarkdownFormatting(thread);
+      const jsonThread = JSON.parse(cleanInput);
 
       const posts: Post[] = [
         {

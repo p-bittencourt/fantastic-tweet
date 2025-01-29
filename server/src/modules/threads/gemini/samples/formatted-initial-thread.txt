@@ -1,0 +1,23 @@
+[
+  {
+    "author": "",
+    "content": "The Force is strong with technology, isn't it?  Seeing what's possible with droids and hyperspace travel...it gives me hope for the future of the galaxy.  We can use these advancements for good! #HopeForTheFuture #NewRepublic #TechForGood",
+    "likes": 0,
+    "shares": 0,
+    "reaction": []
+  },
+  {
+    "author": "",
+    "content": "Remember the Death Star? A terrifying display of power, but also a testament to what unchecked ambition can create.  We must use our technological progress wisely, always considering the consequences. #ResponsibleTech #BalanceOfTheForce #LearnFromThePast",
+    "likes": 0,
+    "shares": 0,
+    "reaction": []
+  },
+  {
+    "author": "",
+    "content": "I believe in the power of innovation to build a brighter tomorrow.  Let's focus on creating tools that heal, protect, and connect us all – across systems and worlds!  May the Force be with our technological endeavors. #GalacticUnity #TechnologyForPeace #BelieveInTheForce",
+    "likes": 0,
+    "shares": 0,
+    "reaction": []
+  }
+]
