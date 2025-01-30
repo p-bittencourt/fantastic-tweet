@@ -53,7 +53,9 @@ export class GeminiService {
           characters[j],
         );
 
-        thread[i].reaction.push(reaction.author, reaction.reaction);
+        if (reaction) {
+          thread[i].reaction.push(reaction.author, reaction.reaction);
+        }
       }
       finalThread.push(thread[i]);
     }
@@ -103,13 +105,15 @@ export class GeminiService {
     this.tokensService.countTokens(response.usageMetadata);
     const text = response.text();
     // Formats reaction into JSON
-    const formattedResponse: Reaction = this.formatter.formatReaction(
+    const formattedResponse = this.formatter.formatReaction(
       text,
       reactingCharacter.name,
     );
 
     // Updates the post with the reaction data
-    this.formatter.asyncAddLikesAndShares(formattedResponse, post);
+    if (formattedResponse) {
+      this.formatter.addLikesAndShares(formattedResponse, post);
+    }
     // updatedPost.reaction.push(
     //   formattedResponse.author,
     //   formattedResponse.reaction,
