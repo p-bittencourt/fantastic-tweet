@@ -8,18 +8,16 @@ import { GeminiException } from 'src/common/exceptions/gemini.exception';
 import { Post, Reaction } from '../types/thread.types';
 import { FormatterService } from './formatter.service';
 import { PromptService } from './prompt.service';
+import { TokensService } from './tokens.service';
 
 @Injectable()
 export class GeminiService {
   private readonly logger = new Logger(GeminiService.name);
-  private totalPromptTokenCount = 0;
-  private totalOutputTokenCount = 0;
-  private threadTokenCount = 0;
-  private totalTokensPerSession = [];
   constructor(
     @Inject(GEMINI_MODEL) private readonly model: GenerativeModel,
     private readonly formatter: FormatterService,
     private readonly promptService: PromptService,
+    private readonly tokensService: TokensService,
   ) {}
   async generateThread(topic: string, characters: ICharacter[]) {
     try {
@@ -37,9 +35,9 @@ export class GeminiService {
         finalThread.push(reaction);
       }
       this.logger.debug('Final thread', finalThread);
-      this.displayTokenCount();
-      this.storeSessionTokens(this.threadTokenCount);
-      this.displaySessionTokenCount();
+      this.tokensService.displayTokenCount();
+      this.tokensService.storeSessionTokens();
+      this.tokensService.displaySessionTokenCount();
     } catch (error) {
       this.logger.error(`Failed to generat thread: ${error.message}`);
       throw new GeminiException('Failed to generate thread content');
@@ -57,7 +55,7 @@ export class GeminiService {
       );
       const output = await this.model.generateContent(prompt);
       const response = output.response;
-      this.countTokens(response.usageMetadata);
+      this.tokensService.countTokens(response.usageMetadata);
       const text = response.text();
       const formattedText = this.formatter.formatInitialThread(
         text,
@@ -85,7 +83,7 @@ export class GeminiService {
     const response = output.response;
 
     // Adds tokens used on each reaction to the total
-    this.countTokens(response.usageMetadata);
+    this.tokensService.countTokens(response.usageMetadata);
     const text = response.text();
     // Formats reaction into JSON
     const formattedResponse: Reaction = this.formatter.formatReaction(
@@ -105,39 +103,6 @@ export class GeminiService {
     return updatedPost;
   }
 
-  private countTokens(response: UsageMetadata): void {
-    this.totalPromptTokenCount += response.promptTokenCount;
-    this.totalOutputTokenCount += response.candidatesTokenCount;
-    this.threadTokenCount += response.totalTokenCount;
-  }
-
-  private displayTokenCount() {
-    this.logger.debug(
-      `Total prompt token count: ${this.totalPromptTokenCount}
-       Total output token count: ${this.totalOutputTokenCount}
-       Total token count from thread generation: ${this.threadTokenCount}
-      `,
-    );
-  }
-
-  private displaySessionTokenCount() {
-    const totalTokens = this.totalTokensPerSession.reduce(
-      (acc, curr) => acc + curr,
-      0,
-    );
-    this.logger.debug(
-      `Token count from each thread: ${this.totalTokensPerSession.join(', ')}
-       Total token count from this session: ${totalTokens}
-      `,
-    );
-  }
-
-  private storeSessionTokens(tokens: number): void {
-    this.totalTokensPerSession.push(this.threadTokenCount);
-    this.totalPromptTokenCount = 0;
-    this.totalOutputTokenCount = 0;
-    this.threadTokenCount = 0;
-  }
   /**
    * Some functions used for tests. These avoid making calls to the Gemini API.
    */
