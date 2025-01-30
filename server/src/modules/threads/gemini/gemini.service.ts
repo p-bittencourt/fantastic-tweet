@@ -14,7 +14,8 @@ export class GeminiService {
   private readonly logger = new Logger(GeminiService.name);
   private totalPromptTokenCount = 0;
   private totalOutputTokenCount = 0;
-  private threadGenerationTotalTokenCount = 0;
+  private threadTokenCount = 0;
+  private totalTokensPerSession = [];
   constructor(
     @Inject(GEMINI_MODEL) private readonly model: GenerativeModel,
     private readonly formatter: FormatterService,
@@ -37,6 +38,8 @@ export class GeminiService {
       }
       this.logger.debug('Final thread', finalThread);
       this.displayTokenCount();
+      this.storeSessionTokens(this.threadTokenCount);
+      this.displaySessionTokenCount();
     } catch (error) {
       this.logger.error(`Failed to generat thread: ${error.message}`);
       throw new GeminiException('Failed to generate thread content');
@@ -105,16 +108,35 @@ export class GeminiService {
   private countTokens(response: UsageMetadata): void {
     this.totalPromptTokenCount += response.promptTokenCount;
     this.totalOutputTokenCount += response.candidatesTokenCount;
-    this.threadGenerationTotalTokenCount += response.totalTokenCount;
+    this.threadTokenCount += response.totalTokenCount;
   }
 
   private displayTokenCount() {
     this.logger.debug(
       `Total prompt token count: ${this.totalPromptTokenCount}
        Total output token count: ${this.totalOutputTokenCount}
-       Total token count from thread generation: ${this.threadGenerationTotalTokenCount}
+       Total token count from thread generation: ${this.threadTokenCount}
       `,
     );
+  }
+
+  private displaySessionTokenCount() {
+    const totalTokens = this.totalTokensPerSession.reduce(
+      (acc, curr) => acc + curr,
+      0,
+    );
+    this.logger.debug(
+      `Token count from each thread: ${this.totalTokensPerSession.join(', ')}
+       Total token count from this session: ${totalTokens}
+      `,
+    );
+  }
+
+  private storeSessionTokens(tokens: number): void {
+    this.totalTokensPerSession.push(this.threadTokenCount);
+    this.totalPromptTokenCount = 0;
+    this.totalOutputTokenCount = 0;
+    this.threadTokenCount = 0;
   }
   /**
    * Some functions used for tests. These avoid making calls to the Gemini API.
