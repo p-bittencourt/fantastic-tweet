@@ -1,6 +1,6 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ICharacter } from '../../characters/types/character.type';
-import { GenerativeModel, UsageMetadata } from '@google/generative-ai';
+import { GenerativeModel } from '@google/generative-ai';
 import { GEMINI_MODEL } from './gemini.provider';
 import { promises as fs } from 'fs';
 import { join } from 'path';
@@ -21,19 +21,14 @@ export class GeminiService {
   ) {}
   async generateThread(topic: string, characters: ICharacter[]) {
     try {
-      const finalThread: Post[] = [];
       const initialThread = await this.createInitialThread(
         topic,
         characters[0],
       );
-      for (let i = 0; i < initialThread.length; i++) {
-        const reaction = await this.reactToPost(
-          initialThread[i],
-          characters[0],
-          characters[1],
-        );
-        finalThread.push(reaction);
-      }
+      const finalThread = await this.generateReactions(
+        initialThread,
+        characters,
+      );
       this.logger.debug('Final thread', finalThread);
       this.tokensService.displayTokenCount();
       this.tokensService.storeSessionTokens();
@@ -42,6 +37,28 @@ export class GeminiService {
       this.logger.error(`Failed to generat thread: ${error.message}`);
       throw new GeminiException('Failed to generate thread content');
     }
+  }
+
+  private async generateReactions(
+    thread: Post[],
+    characters: ICharacter[],
+  ): Promise<Post[]> {
+    const finalThread: Post[] = [];
+
+    for (let i = 0; i < thread.length; i++) {
+      for (let j = 1; j < characters.length; j++) {
+        const reaction = await this.reactToPost(
+          thread[i],
+          characters[0],
+          characters[j],
+        );
+
+        thread[i].reaction.push(reaction.author, reaction.reaction);
+      }
+      finalThread.push(thread[i]);
+    }
+
+    return finalThread;
   }
 
   private async createInitialThread(
@@ -72,7 +89,7 @@ export class GeminiService {
     post: Post,
     originalCharacter: ICharacter,
     reactingCharacter: ICharacter,
-  ): Promise<Post> {
+  ): Promise<Reaction> {
     // Generates the output from the prompt
     const prompt = this.promptService.createReactionPrompt(
       post,
@@ -92,15 +109,12 @@ export class GeminiService {
     );
 
     // Updates the post with the reaction data
-    const updatedPost = this.formatter.asyncAddLikesAndShares(
-      formattedResponse,
-      post,
-    );
-    updatedPost.reaction.push(
-      formattedResponse.author,
-      formattedResponse.reaction,
-    );
-    return updatedPost;
+    this.formatter.asyncAddLikesAndShares(formattedResponse, post);
+    // updatedPost.reaction.push(
+    //   formattedResponse.author,
+    //   formattedResponse.reaction,
+    // );
+    return formattedResponse;
   }
 
   /**

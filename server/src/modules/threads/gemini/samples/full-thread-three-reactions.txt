@@ -1,0 +1,44 @@
+[
+  {
+    "author": "Tony Stark",
+    "content": "So, the planet's kinda melting, huh?  Didn't see that one coming.  My bad.  Seriously though, we need to get our collective act together.  This isn't some villain I can just blast with a repulsor.  #ClimateAction #EarthIsntFlat #GeniusLevelProblems",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      "Daenerys Targaryen",
+      "Stark.  Melting ice is hardly different than melting crowns.  We must conquer this threat as we conquer any other.  Fire and blood...or perhaps, solar panels and sustainable energy?  Let's see what clever schemes we can devise. #ClimateAction #GeniusLevelProblems",
+      "Luke Skywalker",
+      "Tony, my friend.  The Force is with us, and we need to use it wisely.  This challenge is bigger than any Sith Lord, but I believe we can overcome it together.  Hope is a powerful weapon.  #ClimateAction #EarthIsntFlat #GeniusLevelProblems",
+      "Sherlock Holmes",
+      "Elementary, my dear Stark.  The 'melting planet' is a rather predictable consequence of unchecked industrialisation.  A far more intriguing puzzle is finding a solution before we're all reduced to components.  #ClimateAction #GeniusLevelProblems"
+    ]
+  },
+  {
+    "author": "Tony Stark",
+    "content": "Forget the flashy suits for a sec (though, solar-powered ones are in the works, naturally).  We need sustainable energy solutions, NOW.  Think fusion, think next-gen batteries, think less reliance on fossil fuels.  Anyone got a spare billion?  #CleanEnergy #StarkSolutions #InnovationIsKey",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      "Daenerys Targaryen",
+      "Interesting.  My armies marched across Essos, needing supplies.  Sustainable solutions are key to true power.  A billion is a pittance compared to the cost of war.  Let's discuss this, Stark. #CleanEnergy #StarkSolutions #InnovationIsKey #Dracarys",
+      "Luke Skywalker",
+      "Tony, this is the kind of fight worth joining!  The Force is strong with this initiative.  Remember what happened on the Death Star...we need a cleaner energy source more powerful than anything the Empire ever dreamed of.  Let's make this happen! #CleanEnergy #StarkSolutions #InnovationIsKey #HopeForTheGalaxy",
+      "Sherlock Holmes",
+      "Intriguing, Stark.  Fusion, you say?  Reminds me of a rather inefficient attempt at a similar process involving a rather large dog and a rather small amount of radium.  Progress, however, is rarely linear.  Let's see what your 'innovation' truly entails. #CleanEnergy #StarkSolutions #InnovationIsKey"
+    ]
+  },
+  {
+    "author": "Tony Stark",
+    "content": "Look, I build weapons, I know destruction.  But I also build things that save lives.  Let's channel that ingenuity towards fixing this mess.  It's not too late (yet). Let's prove those doomsday preppers wrong.  #SaveThePlanet #IronManDoesntQuit #AvengersAssemble (sort of)",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      "Daenerys Targaryen",
+      "Interesting.  The Iron Man speaks of saving, not conquering.  Perhaps there is more to this 'Stark' than meets the eye.  My dragons and I have seen our share of destruction, but rebuilding... that is a different kind of fire.  We shall see if his ingenuity matches his boasts. #SaveThePlanet #Dracarys",
+      "Luke Skywalker",
+      "Tony, your words resonate with the Force.  We've faced darkness before, but hope is always stronger.  Let's fight for a brighter future! #SaveThePlanet #IronManDoesntQuit #HopeRemains",
+      "Sherlock Holmes",
+      "Intriguing.  A fascinating duality: creation and destruction intertwined.  Reminds me of the Moriarty case, though on a considerably grander scale.  Let's hope this 'mess' doesn't require a final, dramatic solution.  #SaveThePlanet #IronManDoesntQuit"
+    ]
+  }
+]

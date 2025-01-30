@@ -21,7 +21,9 @@ export class FormatterService {
       jsonReaction.author = author;
       return jsonReaction;
     } catch (error) {
-      this.logger.error(`Failed to format post reaction: ${error.message}`);
+      this.logger.error(
+        `Failed to format post reaction: ${error.message}. Reaction: ${reaction}`,
+      );
       throw new GeminiException('Failed to format post reaction');
     }
   }
