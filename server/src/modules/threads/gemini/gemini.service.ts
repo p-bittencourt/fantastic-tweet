@@ -4,11 +4,12 @@ import { GenerativeModel } from '@google/generative-ai';
 import { GEMINI_MODEL } from './gemini.provider';
 import { promises as fs } from 'fs';
 import { join } from 'path';
-import { GeminiException } from 'src/common/exceptions/gemini.exception';
 import { Post, Reaction } from '../types/thread.types';
 import { FormatterService } from './formatter.service';
 import { PromptService } from './prompt.service';
 import { TokensService } from './tokens.service';
+import { GeminiErrorHandler } from './exceptions/gemini.error.handler';
+import { ThreadGenerationException } from './exceptions/gemini.exceptions';
 
 @Injectable()
 export class GeminiService {
@@ -18,6 +19,7 @@ export class GeminiService {
     private readonly formatter: FormatterService,
     private readonly promptService: PromptService,
     private readonly tokensService: TokensService,
+    private readonly errorHandler: GeminiErrorHandler,
   ) {}
   async generateThread(topic: string, characters: ICharacter[]) {
     try {
@@ -33,7 +35,7 @@ export class GeminiService {
       this.handleTokens();
     } catch (error) {
       this.logger.error(`Failed to generat thread: ${error.message}`);
-      throw new GeminiException('Failed to generate thread content');
+      throw new ThreadGenerationException('Failed to generate thread content');
     }
   }
 
@@ -84,7 +86,7 @@ export class GeminiService {
       return formattedText;
     } catch (error) {
       this.logger.error(`Failed to create initial post: ${error.message}`);
-      throw new GeminiException('Failed to create initial post');
+      this.errorHandler.handleGeminiError(error, 'create initial thread');
     }
   }
 

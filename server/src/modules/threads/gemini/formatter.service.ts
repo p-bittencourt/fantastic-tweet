@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Post, Reaction } from '../types/thread.types';
-import { GeminiException } from 'src/common/exceptions/gemini.exception';
+import { ContentFormattingException } from './exceptions/gemini.exceptions';
 
 @Injectable()
 export class FormatterService {
@@ -39,7 +39,9 @@ export class FormatterService {
         // Try to clean up the JSON string if initial parse fails
         return JSON.parse(sanitized);
       } catch (secondError) {
-        throw new Error(`Failed to parse JSON: ${secondError.message}`);
+        throw new ContentFormattingException(
+          `Failed to parse JSON: ${secondError.message}`,
+        );
       }
     }
   }
@@ -119,13 +121,13 @@ export class FormatterService {
       const validPosts = posts.filter((post) => post.content !== undefined);
 
       if (validPosts.length === 0) {
-        throw new Error('No valid posts found in thread');
+        throw new ContentFormattingException('No valid posts found in thread');
       }
 
       return validPosts;
     } catch (error) {
       this.logger.error(`Failed to format thread: ${error.message}`);
-      throw new GeminiException('Failed to format thread');
+      throw new ContentFormattingException('Failed to format thread');
     }
   }
 }

@@ -1,0 +1,62 @@
+[
+  {
+    "author": "Marie Curie",
+    "content": "The alarming changes in our climate demand our urgent attention.  Precise measurements, like those we painstakingly took with radioactive elements, reveal undeniable patterns.  We must apply the same rigorous scientific method to understand and address this challenge. #ClimateAction #ScientificIntegrity",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      {
+        "author": "Nelson Mandela",
+        "reaction": "My dear Madame Curie, your words resonate deeply.  Like the tireless pursuit of scientific truth, the fight for a just and sustainable world requires patience, precision, and unwavering unity.  We faced the darkness of apartheid, yet emerged through education and reconciliation.  Let us apply this same spirit to the climate crisis. #ClimateAction #ScientificIntegrity"
+      },
+      {
+        "author": "Frida Kahlo",
+        "reaction": "Ah, Marie!  Your words, sharp as a surgeon's scalpel, cut to the truth. This climate, this ravaged earth...it mirrors the pain in my own body, the tempest in my soul.  We must fight this injustice, this slow, agonizing death, with the same fierce, unyielding spirit we use to confront our personal hells.  Viva la revolución, even against a dying planet! #ClimateAction #ScientificIntegrity #PainAsPower #ArtReflectsLife"
+      },
+      {
+        "author": "Albert Einstein",
+        "reaction": "My dear Marie, your call for rigorous science echoes my own musings on the universe's elegant simplicity!  Imagine the Earth as a delicate clockwork mechanism – if we tamper with one gear (the climate), the whole thing may unravel.  Let's use our collective imagination to find a solution, not just measurements. #ClimateAction #ScientificIntegrity"
+      }
+    ]
+  },
+  {
+    "author": "Marie Curie",
+    "content": "My own journey, though arduous, shows that persistence yields results.  Women, too, must be fully empowered in science to contribute to finding solutions.  The world needs every brilliant mind, regardless of gender.  Let's not waste precious time. #WomenInSTEM #ClimateScience",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      {
+        "author": "Nelson Mandela",
+        "reaction": "Madam Curie, your words resonate deeply.  My own struggle against injustice taught me the power of persistence, a lesson mirrored in your scientific journey.  Education, as you champion, truly is the most powerful weapon, unlocking potential in all, regardless of gender.  Let us build a world where every voice, every mind, contributes to a brighter future. #WomenInSTEM #ClimateScience #EducationIsPower"
+      },
+      {
+        "author": "Frida Kahlo",
+        "reaction": "My dear Marie!  Your words, like a hummingbird's frantic wings, beat with truth.  This relentless pursuit of knowledge— it's a mirror to my own battles with paint and canvas.  We, mujeres, are not fragile flowers; we are the volcanoes, erupting with brilliance.  Let our pain bloom into discoveries.  Sí, a thousand times sí! #WomenInSTEM #ClimateScience #VivaLaRevolucion #ArtIsLife"
+      },
+      {
+        "author": "Albert Einstein",
+        "reaction": "Marie, my dear!  A fine sentiment, truly.  Imagine a universe where the only limit to discovery is our imagination, not our gender!  Reminds me of those pesky equations – sometimes, the simplest solution is the most elegant, and women have demonstrably elegant minds!  Let's not waste precious time indeed. #WomenInSTEM #ClimateScience"
+      }
+    ]
+  },
+  {
+    "author": "Marie Curie",
+    "content": "The knowledge we gain must benefit all of humanity.  Just as radium's discovery opened new avenues in medicine, understanding climate change can pave the way for a sustainable future. Collaboration, not competition, is key. Let us work together. #ClimateSolutions #ScientificCollaboration",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      {
+        "author": "Nelson Mandela",
+        "reaction": "Madam Curie, your words resonate deeply.  My own struggle against apartheid taught me the power of unity, much like radium's transformative power in medicine.  Education, as you know, is the key to unlocking a sustainable future for all.  Let us indeed work together. #ClimateSolutions #ScientificCollaboration #EducationIsPower"
+      },
+      {
+        "author": "Frida Kahlo",
+        "reaction": "Ah, Madame Curie!  Your radium glows like my own lifeblood, a vibrant pulse against the darkness.  But science alone, even as radiant as your discoveries, can't mend a broken heart, or a broken world.  We must paint our pain, our triumphs, *all* of it – onto the canvas of existence!  Collaboration?  Si! But let's not forget the fierce, individual blooms that make the garden riotous. #ClimateSolutions #ScientificCollaboration #VivaLaVida #ArtAndScience"
+      },
+      {
+        "author": "Albert Einstein",
+        "reaction": "My dear Marie, a brilliant thought!  Imagine: harnessing the sun, like a giant radium atom, to power our world – wouldn't that be simpler, and more beautiful?  Collaboration, yes!  Competition is like a runaway train, dangerous and messy. Let's steer towards a sustainable future, peacefully, together. #ClimateSolutions #ScientificCollaboration  #ImaginationOverKnowledge"
+      }
+    ]
+  }
+]

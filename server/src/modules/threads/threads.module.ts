@@ -6,6 +6,7 @@ import { GeminiModel } from './gemini/gemini.provider';
 import { FormatterService } from './gemini/formatter.service';
 import { PromptService } from './gemini/prompt.service';
 import { TokensService } from './gemini/tokens.service';
+import { GeminiErrorHandler } from './gemini/exceptions/gemini.error.handler';
 
 @Module({
   controllers: [ThreadsController],
@@ -16,6 +17,7 @@ import { TokensService } from './gemini/tokens.service';
     FormatterService,
     PromptService,
     TokensService,
+    GeminiErrorHandler,
   ],
 })
 export class ThreadsModule {}
