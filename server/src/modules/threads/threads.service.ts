@@ -2,7 +2,10 @@ import { Injectable, Logger } from '@nestjs/common';
 import { CreateThreadDto } from './dto/create-thread.dto';
 import { UpdateThreadDto } from './dto/update-thread.dto';
 import { GeminiService } from './gemini/gemini.service';
-import { sampleCharacters } from '../characters/samples/character.sample';
+import {
+  sampleFictionalCharacters,
+  sampleHistoricalCharacters,
+} from '../characters/samples/character.sample';
 
 @Injectable()
 export class ThreadsService {
@@ -11,10 +14,10 @@ export class ThreadsService {
   async create(createThreadDto: CreateThreadDto) {
     try {
       const characters = [
-        sampleCharacters[0],
-        sampleCharacters[1],
-        sampleCharacters[2],
-        sampleCharacters[6],
+        sampleHistoricalCharacters[0],
+        sampleHistoricalCharacters[1],
+        sampleHistoricalCharacters[2],
+        sampleHistoricalCharacters[6],
       ];
       const output = await this.geminiService.generateThread(
         'Climate Change',
