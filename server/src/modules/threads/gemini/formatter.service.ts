@@ -1,6 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Post, Reaction } from '../types/thread.types';
-import { ICharacter } from 'src/modules/characters/types/character.type';
 import { GeminiException } from 'src/common/exceptions/gemini.exception';
 
 @Injectable()

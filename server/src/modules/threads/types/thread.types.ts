@@ -1,8 +1,8 @@
 export interface Reaction {
   author: string;
   reaction: string;
-  like: boolean;
-  share: boolean;
+  like?: boolean;
+  share?: boolean;
 }
 
 export interface Post {
@@ -10,7 +10,7 @@ export interface Post {
   content: string;
   likes: number;
   shares: number;
-  reaction: string[];
+  reaction: Reaction[];
 }
 
 export interface Thread {

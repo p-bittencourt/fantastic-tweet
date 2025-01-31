@@ -30,9 +30,7 @@ export class GeminiService {
         characters,
       );
       this.logger.debug('Final thread', finalThread);
-      this.tokensService.displayTokenCount();
-      this.tokensService.storeSessionTokens();
-      this.tokensService.displaySessionTokenCount();
+      this.handleTokens();
     } catch (error) {
       this.logger.error(`Failed to generat thread: ${error.message}`);
       throw new GeminiException('Failed to generate thread content');
@@ -54,7 +52,10 @@ export class GeminiService {
         );
 
         if (reaction) {
-          thread[i].reaction.push(reaction.author, reaction.reaction);
+          thread[i].reaction.push({
+            author: reaction.author,
+            reaction: reaction.reaction,
+          });
         }
       }
       finalThread.push(thread[i]);
@@ -114,11 +115,13 @@ export class GeminiService {
     if (formattedResponse) {
       this.formatter.addLikesAndShares(formattedResponse, post);
     }
-    // updatedPost.reaction.push(
-    //   formattedResponse.author,
-    //   formattedResponse.reaction,
-    // );
     return formattedResponse;
+  }
+
+  private handleTokens(): void {
+    this.tokensService.displayTokenCount();
+    this.tokensService.storeSessionTokens();
+    this.tokensService.displaySessionTokenCount();
   }
 
   /**
