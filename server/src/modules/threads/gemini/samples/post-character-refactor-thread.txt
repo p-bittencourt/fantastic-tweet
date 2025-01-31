@@ -1,0 +1,127 @@
+[
+  {
+    "author": "Tony Stark",
+    "content": "Alright, world. Let's talk climate change.  This isn't some Thanos-level snap, but it's a serious threat.  And unlike that purple goober, I *actually* have a plan.  Think less 'Avengers: Endgame,' more 'Iron Man 3' – only this time, the bad guy is… well, us.  #ClimateChange #StarkSolutions #GeniusAtWork",
+    "likes": 2,
+    "shares": 3,
+    "reaction": [
+      {
+        "author": "Daenerys Targaryen",
+        "reaction": "Interesting.  While I appreciate the ambition,  Mr. Stark, solutions for Westeros's climate challenges require more than mere technology. True change demands dismantling the systems of oppression that perpetuate such crises.  The wheel must break. #ClimateChange #StarkSolutions #Dracarys"
+      },
+      {
+        "author": "Luke Skywalker",
+        "reaction": "Tony, your optimism is inspiring.  The Force shows us all things are connected; we must face this challenge together, not with weapons, but with understanding and ingenuity.  Your plan sounds promising.  May the Force be with us all. #ClimateChange #StarkSolutions #Hope"
+      },
+      {
+        "author": "Sherlock Holmes",
+        "reaction": "Stark's theatrics aside, a predictable, albeit inefficient, approach.  'Us' is far too broad a brush.  The problem isn't humanity, it's a lack of precise, quantifiable data.  His 'plan'?  Doubtless more flashy spectacle than rigorous scientific methodology.  Still, the underlying threat merits attention.  Let's see if he can move beyond the dramatic flair. #ClimateChange #StarkSolutions #DeductionIsKey"
+      }
+    ]
+  },
+  {
+    "author": "Tony Stark",
+    "content": "Forget windmills and solar panels (though, props to those who try). We need something… bigger.  Something… *Starker*.  I'm talking next-gen fusion reactors, advanced carbon capture, and maybe a repulsor-powered weather-control system. Don't judge until you see the prototype.  #Innovation #ProblemSolver #NotYourAverageBillionaire",
+    "likes": 2,
+    "shares": 2,
+    "reaction": [
+      {
+        "author": "Daenerys Targaryen",
+        "reaction": "Interesting.  While I appreciate the ambition, Mr. Stark, true power lies not in controlling the elements, but in liberating the people.  My dragons were once feared, but even they can be instruments of mercy.  Perhaps a collaboration could benefit both our realms. #Innovation #ProblemSolver #NotYourAverageBillionaire #Dracarys #BreakTheWheel"
+      },
+      {
+        "author": "Luke Skywalker",
+        "reaction": "Tony, your ambition is… impressive.  The Force teaches us balance is key.  While innovation is vital, harnessing its power responsibly is crucial. Let's ensure any advancement serves all life, not just some.  #Innovation #ProblemSolver  #BalanceInTheForce"
+      },
+      {
+        "author": "Sherlock Holmes",
+        "reaction": "Predictable.  Grandiose pronouncements masking rudimentary understanding of thermodynamics.  Repulsor-powered weather control?  Elementary, my dear Watson...or rather, elementary, my dear Stark. The inherent instability alone renders it impractical.  Carbon capture is a feasible, albeit inefficient, approach. Fusion, however, warrants further investigation. Though, the 'bigger' solution he seeks lacks the elegance of true scientific rigor. #Innovation?  More like #Hubris #Inefficient #AmateurHour"
+      }
+    ]
+  },
+  {
+    "author": "Tony Stark",
+    "content": "Look, I get it.  'Tony Stark playing God?' Yeah, yeah, I've heard it all before. But the planet’s not exactly gonna self-correct. So, if a little ego-driven genius is needed to save the day, then consider it done.  Need a team of the brightest minds? Hit me up.  (But bring your A-game).  #SavingThePlanet #ItsAboutTime #IronMan #GeniusesAssemble",
+    "likes": 2,
+    "shares": 2,
+    "reaction": [
+      {
+        "author": "Daenerys Targaryen",
+        "reaction": "Lord Stark, your hubris is...familiar.  Saving the world is not a contest, but a duty.  I, too, have faced the weight of expectation and the burden of fire.  Let us see if our 'geniuses' can truly break the wheel. #SavingThePlanet #ItsAboutTime #Dracarys"
+      },
+      {
+        "author": "Luke Skywalker",
+        "reaction": "Tony, your drive is impressive.  Saving the planet is a noble goal, but the path... it matters.  The Force reminds us that even the darkest hearts can find light.  Let's ensure we build a future worthy of that potential.  #SavingThePlanet #GeniusesAssemble"
+      },
+      {
+        "author": "Sherlock Holmes",
+        "reaction": "Predictable.  Self-aggrandizing, even for a man of his... resources.  'Saving the planet'?  A simplistic narrative.  The solution, I daresay, lies not in bombastic pronouncements but in meticulous observation and deductive reasoning.  His 'A-game' better involve more than just repulsor rays.  One expects a certain level of intellectual rigor, after all. #SavingThePlanet #ItsAboutTime #AmateurHour"
+      }
+    ]
+  }
+]
+
+---------------------------------------------------------------------
+
+[
+  {
+    "author": "Tony Stark",
+    "content": "Alright, world. Let's talk climate change.  It's not a 'Thanos snap' problem, but it's definitely a 'world-ending' situation if we don't act.  My genius-level brain has been working overtime, and I've got some ideas... way better than that whole 'tree-hugging' thing. #ClimateChange #StarkSolutions #GeniusAtWork #BetterThanCap",
+    "likes": 2,
+    "shares": 2,
+    "reaction": [
+      {
+        "author": "Daenerys Targaryen",
+        "reaction": "Interesting.  The Iron Throne knew nothing of such 'world-ending' threats, yet it fell.  Perhaps this 'Stark' possesses a sliver of the foresight my ancestors lacked.  His methods may be... unconventional, but the urgency is undeniable.  We must break the wheel of destruction, even if it's not forged of steel. #ClimateChange #StarkSolutions #BreakTheWheel"
+      },
+      {
+        "author": "Luke Skywalker",
+        "reaction": "Tony, your concern for the planet is admirable.  The Force teaches us that all things are connected, and harming the planet harms us all.  We must find a path of balance, just as I sought peace, not just victory.  Your 'better than tree-hugging' comment...perhaps focus on the unity of purpose, not the superiority of methods?  #ClimateChange #StarkSolutions #Hope #BalanceOfTheForce"
+      },
+      {
+        "author": "Sherlock Holmes",
+        "reaction": "Stark's theatrics aside, a 'world-ending' situation demands a precise, data-driven approach, not emotional appeals.  His 'genius-level brain' better produce quantifiable solutions, not another flashy distraction.  The game, however, is undeniably afoot. #ClimateChange #StarkSolutions #DeductionNeeded"
+      }
+    ]
+  },
+  {
+    "author": "Tony Stark",
+    "content": "Forget solar panels, we're talking about next-gen fusion reactors, atmospheric scrubbers that'd make Pepper proud, and maybe even a few repulsor-powered wind turbines.  Yeah, I'm talking about serious tech, the kind that doesn't rely on hoping for the best.  It's gonna take a team, but that's where Rhodey comes in, right?  #IronMan #Innovation #NoTimeForHandholding #GetItDone",
+    "likes": 2,
+    "shares": 2,
+    "reaction": [
+      {
+        "author": "Daenerys Targaryen",
+        "reaction": "Intriguing.  While I prefer solutions that empower the people directly, rather than relying solely on technology,  this... *innovation*... could prove useful in rebuilding Westeros after the wheel is broken.  The oppressed deserve more than hope; they deserve tangible change. #IronMan #Innovation #GetItDone"
+      },
+      {
+        "author": "Luke Skywalker",
+        "reaction": "Impressive, Tony.  But even the greatest technology needs a guiding hand.  The Force reminds us that balance is key – even in innovation.  We must strive for solutions that heal, not just power.  #IronMan #Innovation #GetItDone (Though maybe a little less 'No Time For Handholding'?  We all need help sometimes. 😉)"
+      },
+      {
+        "author": "Sherlock Holmes",
+        "reaction": "Amateurish.  'Hoping for the best'?  Utterly unscientific.  Atmospheric scrubbers?  Child's play compared to a properly engineered solution. Repulsor technology?  Interesting, but the energy efficiency calculations are, dare I say, lacking.  One would expect more from a man who supposedly built a suit of powered armor.  The game, however, is afoot. #IronMan #Innovation #LogicOverEmotion #Elementary"
+      }
+    ]
+  },
+  {
+    "author": "Tony Stark",
+    "content": "Look, the planet's in trouble.  Some might call it 'unprecedented.' I call it a challenge. A really, really big, planet-sized challenge.  But I'm Tony Stark. I don't do 'impossible.'  The ends justify the means... especially when the means involve some seriously awesome tech and prevent the end of all mankind.  Don't @ me. #SaveThePlanet #StarkTech #LetsDoThis #ExtinctionLevelEvent #ButMakeItFashionable",
+    "likes": 2,
+    "shares": 2,
+    "reaction": [
+      {
+        "author": "Daenerys Targaryen",
+        "reaction": "While your methods, Mr. Stark, are… unconventional, the goal is one I understand.  The wheel must be broken, even if it requires 'awesome tech'.  I have faced my own 'extinction-level events,' and know that mercy, where possible, is its own strength.  But let us remember, the ends do not always justify the means.  #SaveThePlanet #StarkTech #BreakTheWheel"
+      },
+      {
+        "author": "Luke Skywalker",
+        "reaction": "Tony, your spirit's undeniable.  But the Force teaches us that even in the face of great darkness, balance must be sought.  'The ends justify the means' – that path is dangerous.  Let's find a solution that preserves all life, not just humanity. #SaveThePlanet #Hope #TheForce #Balance"
+      },
+      {
+        "author": "Sherlock Holmes",
+        "reaction": "Predictable.  'Extinction-level event'?  Amateur.  The theatrics are tiresome, Stark. While the sentiment is...acceptable, the lack of specific data points is infuriating.  One doesn't solve a planetary crisis with hashtags.  Show me the peer-reviewed studies, the precise failure modes, the calculated probability of success.  Then, perhaps, we can discuss 'awesome tech.' Until then, it's all bluster.  #SaveThePlanet #StarkTech #ElementaryMyDearWatson (not really)"
+      }
+    ]
+  }
+]
