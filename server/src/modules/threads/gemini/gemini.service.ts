@@ -79,10 +79,7 @@ export class GeminiService {
       const response = output.response;
       this.tokensService.countTokens(response.usageMetadata);
       const text = response.text();
-      const formattedText = this.formatter.formatInitialThread(
-        text,
-        character.name,
-      );
+      const formattedText = this.formatter.formatInitialThread(text, character);
       return formattedText;
     } catch (error) {
       this.logger.error(`Failed to create initial post: ${error.message}`);
@@ -110,7 +107,7 @@ export class GeminiService {
     // Formats reaction into JSON
     const formattedResponse = this.formatter.formatReaction(
       text,
-      reactingCharacter.name,
+      reactingCharacter,
     );
 
     // Updates the post with the reaction data
@@ -128,8 +125,7 @@ export class GeminiService {
 
   /**
    * Some functions used for tests. These avoid making calls to the Gemini API.
-   */
-  //#region
+
   private async testCreateInitialThread(): Promise<Post[]> {
     try {
       const projectRoot = process.cwd();
@@ -198,5 +194,5 @@ export class GeminiService {
     const jsonThread: Post[] = JSON.parse(sampleFormattedThread);
     return jsonThread;
   }
-  //#endregion
+  */
 }

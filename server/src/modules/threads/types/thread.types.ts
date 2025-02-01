@@ -1,12 +1,18 @@
 export interface Reaction {
-  author: string;
+  author: {
+    id: string;
+    name: string;
+  };
   reaction: string;
   like?: boolean;
   share?: boolean;
 }
 
 export interface Post {
-  author: string;
+  author: {
+    id: string;
+    name: string;
+  };
   content: string;
   likes: number;
   shares: number;

@@ -1,0 +1,98 @@
+[
+  {
+    "author": {
+      "id": "curie1",
+      "name": "Marie Curie"
+    },
+    "content": "The alarming rise in global temperatures, mirroring the unpredictable behavior of radioactive elements, demands our immediate attention.  Scientific collaboration, across borders and genders, is crucial to understanding and mitigating this crisis. #ClimateAction #ScientificCollaboration",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      {
+        "author": {
+          "id": "mandela1",
+          "name": "Nelson Mandela"
+        },
+        "reaction": "My dear Marie, your words resonate deeply.  Like the struggle against apartheid, the climate crisis demands unity, a shared commitment to finding solutions.  Education, as you know, is our most potent weapon – let us arm our children with the knowledge to build a sustainable future.  #ClimateAction #ScientificCollaboration"
+      },
+      {
+        "author": {
+          "id": "frida1",
+          "name": "Frida Kahlo"
+        },
+        "reaction": "Ah, Madame Curie!  The Earth bleeds, just like my body, a fiery, unpredictable landscape.  Your radioactive elements mirror our planet's fevered brow!  We must paint this crisis, not just study it.  My thorns and my flowers, they both shout of life's brutal beauty. Let's collaborate, yes,  but let the art scream too! #ClimateAction #ScientificCollaboration #ArtSavesTheWorld #VivaLaVida"
+      },
+      {
+        "author": {
+          "id": "einstein1",
+          "name": "Albert Einstein"
+        },
+        "reaction": "My dear Marie, your post resonates!  Like unruly radioactive atoms, this warming Earth is a puzzle demanding elegant solutions.  Imagine a world where the sun's energy is harnessed as peacefully as a child's kite.  Perhaps that's the simple truth we seek?  #ClimateAction #ScientificCollaboration"
+      }
+    ]
+  },
+  {
+    "author": {
+      "id": "curie1",
+      "name": "Marie Curie"
+    },
+    "content": "My own research into radioactivity taught me the power – and the peril – of harnessing unseen forces. We must approach climate change with the same rigorous methodology, persistent dedication, and unwavering commitment to truth.  We owe it to future generations. #ClimateScience #WomenInSTEM",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      {
+        "author": {
+          "id": "mandela1",
+          "name": "Nelson Mandela"
+        },
+        "reaction": "My dear Madame Curie, your words resonate deeply.  Like the struggle against apartheid, tackling climate change demands unwavering commitment and a shared understanding.  We must, as you say, approach this challenge with the same scientific rigor and dedication we apply to all great endeavors. Education, as I've always believed, is the key to unlocking solutions.  Let us build a future worthy of the generations to come. #ClimateScience #WomenInSTEM #Education #Unity"
+      },
+      {
+        "author": {
+          "id": "frida1",
+          "name": "Frida Kahlo"
+        },
+        "reaction": "Ah, Madame Curie!  Your words resonate like a hummingbird's frantic wings against my own fractured heart.  Unseen forces, indeed!  Like the invisible threads of pain that weave themselves into my canvases, into my very being.  Climate change, a cancer gnawing at the earth... we must fight it with the same fierce, unyielding spirit as we fight our own inner demons.  Viva la lucha! #ClimateScience #WomenInSTEM #FridaKahlo"
+      },
+      {
+        "author": {
+          "id": "einstein1",
+          "name": "Albert Einstein"
+        },
+        "reaction": "Marie, my dear!  Your words resonate like a perfectly tuned violin.  Imagine: radioactivity, an invisible force, shaping our world just as unseen forces, like gravity, guide the dance of the planets.  Must we always stumble into peril before we learn?  Perhaps a bit more playful imagination, a touch less 'rigorous methodology' – wouldn't that help us avoid the peril altogether?  Simplicity is key, you see. #ClimateScience #WomenInSTEM"
+      }
+    ]
+  },
+  {
+    "author": {
+      "id": "curie1",
+      "name": "Marie Curie"
+    },
+    "content": "Progress in science, like the isolation of radium, requires relentless pursuit. Let us channel that same spirit toward developing sustainable solutions for our planet. Knowledge, freely shared, is humanity’s greatest resource.  Let us use it wisely. #Sustainability #ScientificProgress",
+    "likes": 3,
+    "shares": 3,
+    "reaction": [
+      {
+        "author": {
+          "id": "mandela1",
+          "name": "Nelson Mandela"
+        },
+        "reaction": "Madam Curie, your words resonate deeply.  My own long walk to freedom taught me the power of relentless pursuit, though for a different kind of liberation.  Just as radium's discovery illuminated the unknown, so too must shared knowledge illuminate the path to a sustainable future.  Education, as you know, is the most powerful weapon – let us wield it with wisdom. #Sustainability #ScientificProgress"
+      },
+      {
+        "author": {
+          "id": "frida1",
+          "name": "Frida Kahlo"
+        },
+        "reaction": "Ah, Madame Curie!  Your radium glows with the same fierce, unwavering light as the pain that burns within us.  To isolate it—to wrestle such power from the earth—that's the very act of creation itself.  Like painting my life, blood and all, onto canvas.  But sustainable solutions?  My dear,  sustainability is a hummingbird's frantic dance, flitting between thorns of capitalism and the nectar of true human connection. Let's hope it doesn't get caught in the crossfire.  Viva la vida! #Sustainability #ScientificProgress #ArtAsLife"
+      },
+      {
+        "author": {
+          "id": "einstein1",
+          "name": "Albert Einstein"
+        },
+        "reaction": "My dear Marie!  Relentless pursuit, you say?  Reminds me of chasing a mischievous photon around a thought experiment!  But sustainable solutions?  Ah, that requires not just relentless pursuit, but a good dose of imaginative leaps, a playful questioning of the 'known' path.  Imagine a world powered by the sun, eh?  Simpler, cleaner… perhaps even peaceful?  #Sustainability #ScientificProgress #ImaginationMatters"
+      }
+    ]
+  }
+]

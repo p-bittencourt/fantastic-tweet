@@ -5,7 +5,9 @@ import { env } from 'src/config/env.config';
 import { HttpExceptionFilter } from './common/filter/http-exception.filter';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: ['error', 'warn', 'debug', 'log'],
+  });
   app.use(helmet());
   app.enableCors();
   app.setGlobalPrefix('api');

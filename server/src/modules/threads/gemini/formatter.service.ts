@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Post, Reaction } from '../types/thread.types';
 import { ContentFormattingException } from './exceptions/gemini.exceptions';
+import { ICharacter } from 'src/modules/characters/types/character.type';
 
 @Injectable()
 export class FormatterService {
@@ -46,7 +47,7 @@ export class FormatterService {
     }
   }
 
-  formatReaction(reaction: string, author: string): Reaction {
+  formatReaction(reaction: string, author: ICharacter): Reaction {
     try {
       const cleanInput = this.cleanMarkdownFormatting(reaction);
       const jsonReaction = this.safeJsonParse(cleanInput) as Reaction;
@@ -57,7 +58,10 @@ export class FormatterService {
       }
 
       return {
-        author,
+        author: {
+          id: author.id,
+          name: author.name,
+        },
         reaction: jsonReaction.reaction,
         like: Boolean(jsonReaction.like),
         share: Boolean(jsonReaction.share),
@@ -82,35 +86,47 @@ export class FormatterService {
     return post;
   }
 
-  formatInitialThread(thread: string, characterName: string): Post[] {
+  formatInitialThread(thread: string, character: ICharacter): Post[] {
     try {
       const cleanInput = this.cleanMarkdownFormatting(thread);
       const jsonThread = this.safeJsonParse(cleanInput);
 
       const posts: Post[] = [
         {
-          author: characterName,
+          author: {
+            id: character.id,
+            name: character.name,
+          },
           content: jsonThread.post1,
           likes: 0,
           shares: 0,
           reaction: [],
         },
         {
-          author: characterName,
+          author: {
+            id: character.id,
+            name: character.name,
+          },
           content: jsonThread.post2,
           likes: 0,
           shares: 0,
           reaction: [],
         },
         {
-          author: characterName,
+          author: {
+            id: character.id,
+            name: character.name,
+          },
           content: jsonThread.post3,
           likes: 0,
           shares: 0,
           reaction: [],
         },
         {
-          author: characterName,
+          author: {
+            id: character.id,
+            name: character.name,
+          },
           content: jsonThread.post4,
           likes: 0,
           shares: 0,

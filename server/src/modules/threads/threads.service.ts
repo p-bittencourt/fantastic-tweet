@@ -14,10 +14,10 @@ export class ThreadsService {
   async create(createThreadDto: CreateThreadDto) {
     try {
       const characters = [
-        sampleHistoricalCharacters[0],
-        sampleHistoricalCharacters[1],
-        sampleHistoricalCharacters[2],
-        sampleHistoricalCharacters[6],
+        sampleFictionalCharacters[0],
+        sampleFictionalCharacters[1],
+        sampleFictionalCharacters[2],
+        sampleFictionalCharacters[6],
       ];
       const output = await this.geminiService.generateThread(
         'Climate Change',
