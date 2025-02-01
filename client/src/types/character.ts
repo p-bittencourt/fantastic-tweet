@@ -1,7 +1,9 @@
-export interface Character {
+export interface ICharacter {
   id: string;
   name: string;
   universe: string;
-  traits: string[];
+  personalityTraits: string[];
+  beliefs: string[];
+  speakingStyle: string;
   imageUrl: string;
 }
