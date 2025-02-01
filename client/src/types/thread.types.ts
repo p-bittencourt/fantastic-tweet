@@ -19,9 +19,4 @@ export interface Post {
   reaction: Reaction[];
 }
 
-export interface Thread {
-  post1: Post;
-  post2: Post;
-  post3?: Post;
-  post4?: Post;
-}
+export type Thread = Post[];
