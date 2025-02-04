@@ -34,7 +34,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
       <h3 className="font-bold text-lg mb-1">{character.name}</h3>
       <p className="text-gray-600 text-sm mb-2">{character.universe}</p>
       <div className="flex flex-wrap gap-1">
-        {character.personalityTraits.map((trait) => (
+        {character.traits?.map((trait) => (
           <span
             key={trait}
             className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
@@ -43,17 +43,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
           </span>
         ))}
       </div>
-      <div className="flex flex-wrap gap-1">
-        {character.beliefs.map((belief) => (
-          <span
-            key={belief}
-            className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
-          >
-            {belief}
-          </span>
-        ))}
-      </div>
-      <p className="text-gray-600 text-sm mb-2">{character.speakingStyle}</p>
     </div>
   );
 };

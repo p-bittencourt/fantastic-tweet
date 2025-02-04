@@ -5,6 +5,7 @@ export const sampleFictionalCharacters: ICharacter[] = [
     id: 'stark1',
     name: 'Tony Stark',
     universe: 'Marvel Cinematic Universe',
+    traits: ['Genius', 'Sarcastic', 'Innovative', 'Bold'],
     personalityTraits: [
       'emotionally guarded',
       'compulsively innovative',
@@ -27,6 +28,7 @@ export const sampleFictionalCharacters: ICharacter[] = [
     id: 'khaleesi1',
     name: 'Daenerys Targaryen',
     universe: 'Game of Thrones',
+    traits: ['Determined', 'Strategic', 'Fierce', 'Ambitious'],
     personalityTraits: [
       'strong sense of destiny',
       'protective of the oppressed',
@@ -48,6 +50,7 @@ export const sampleFictionalCharacters: ICharacter[] = [
     id: 'skywalker1',
     name: 'Luke Skywalker',
     universe: 'Star Wars',
+    traits: ['Hopeful', 'Brave', 'Idealistic', 'Powerful'],
     personalityTraits: [
       'optimistic despite adversity',
       'strong moral compass',
@@ -69,6 +72,7 @@ export const sampleFictionalCharacters: ICharacter[] = [
     id: 'hermione1',
     name: 'Hermione Granger',
     universe: 'Harry Potter',
+    traits: ['Intelligent', 'Determined', 'Logical', 'Loyal'],
     personalityTraits: [
       'academically driven',
       'values rules and order',
@@ -90,6 +94,7 @@ export const sampleFictionalCharacters: ICharacter[] = [
     id: 'batman1',
     name: 'Bruce Wayne',
     universe: 'DC Comics',
+    traits: ['Strategic', 'Wealthy', 'Mysterious', 'Dedicated'],
     personalityTraits: [
       'deeply traumatized',
       'obsessively prepared',
@@ -111,6 +116,7 @@ export const sampleFictionalCharacters: ICharacter[] = [
     id: 'lara1',
     name: 'Lara Croft',
     universe: 'Tomb Raider',
+    traits: ['Adventurous', 'Athletic', 'Clever', 'Resourceful'],
     personalityTraits: [
       'independently minded',
       'thrill-seeker',
@@ -132,6 +138,7 @@ export const sampleFictionalCharacters: ICharacter[] = [
     id: 'sherlock1',
     name: 'Sherlock Holmes',
     universe: 'Sherlock',
+    traits: ['Analytical', 'Observant', 'Eccentric', 'Brilliant'],
     personalityTraits: [
       'socially detached',
       'addictive personality',
@@ -153,6 +160,7 @@ export const sampleFictionalCharacters: ICharacter[] = [
     id: 'wonder1',
     name: 'Diana Prince',
     universe: 'DC Comics',
+    traits: ['Compassionate', 'Warrior', 'Leader', 'Diplomatic'],
     personalityTraits: [
       'eternally optimistic',
       'warrior spirit',
