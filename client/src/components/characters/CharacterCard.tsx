@@ -15,7 +15,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   return (
     <div
       className={`
-        p-4 rounded-lg border-2 cursor-pointer transition-all
+        p-2 lg:p-3 rounded-lg border-2 cursor-pointer transition-all
         ${
           isSelected
             ? 'border-blue-500 bg-blue-50'
@@ -24,20 +24,22 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
       `}
       onClick={() => onSelect?.(character.id)}
     >
-      <div className="aspect-square w-full mb-3 overflow-hidden rounded-lg">
+      <div className="aspect-square w-full mb-2 overflow-hidden rounded-lg">
         <img
           src={character.imageUrl}
           alt={character.name}
           className="w-full h-full object-cover"
         />
       </div>
-      <h3 className="font-bold text-lg mb-1">{character.name}</h3>
-      <p className="text-gray-600 text-sm mb-2">{character.universe}</p>
+      <h3 className="font-bold text-sm lg:text-base mb-1">{character.name}</h3>
+      <p className="text-gray-600 text-xs lg:text-sm mb-2">
+        {character.universe}
+      </p>
       <div className="flex flex-wrap gap-1">
         {character.traits?.map((trait) => (
           <span
             key={trait}
-            className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+            className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded-full"
           >
             {trait}
           </span>

@@ -6,9 +6,11 @@ const CharacterGallery: React.FC = () => {
   const [selectedCharacterId, setSelectedCharacterId] = useState<string>('');
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-bold mb-4">Choose a Character</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="p-3 lg:p-4 bg-white rounded-lg shadow">
+      <h2 className="text-lg lg:text-xl font-bold mb-3">
+        Available Characters
+      </h2>
+      <div className="grid grid-cols-2 gap-2 lg:gap-3">
         {sampleFictionalCharacters.map((character) => (
           <CharacterCard
             key={character.id}
