@@ -10,7 +10,7 @@ const predefinedThemes = [
 
 const ThreadInput: React.FC = () => {
   const [selectedTheme, setSelectedTheme] = useState('');
-  const [customTheme, setCustomTheme] = useState('');
+  // const [customTheme, setCustomTheme] = useState('');
 
   return (
     <div className="p-3 lg:p-4 bg-white rounded-lg shadow">
@@ -31,7 +31,8 @@ const ThreadInput: React.FC = () => {
             ))}
           </select>
         </div>
-        <div>
+        {/*
+          <div>
           <label className="block mb-1 text-sm">Or enter your own theme:</label>
           <input
             type="text"
@@ -41,6 +42,7 @@ const ThreadInput: React.FC = () => {
             className="w-full p-1.5 border rounded text-sm"
           />
         </div>
+        */}
         <button
           className="w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-3 rounded text-sm transition-colors"
           onClick={() => {
