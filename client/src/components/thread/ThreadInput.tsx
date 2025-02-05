@@ -21,7 +21,7 @@ const ThreadInput: React.FC = () => {
           <select
             value={selectedTheme}
             onChange={(e) => setSelectedTheme(e.target.value)}
-            className="w-full p-1.5 border rounded text-sm"
+            className="w-full p-1.5 border rounded text-sm cursor-pointer"
           >
             <option value="">Choose a theme...</option>
             {predefinedThemes.map((theme) => (
@@ -44,7 +44,7 @@ const ThreadInput: React.FC = () => {
         </div>
         */}
         <button
-          className="w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-3 rounded text-sm transition-colors"
+          className="w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-3 rounded text-sm transition-colors cursor-pointer"
           onClick={() => {
             /* TODO: handle generation */
           }}
