@@ -1,9 +1,12 @@
+import { ThemeProvider } from './components/theme/ThemeProvider';
 import Home from './pages/Home';
 
 function App() {
   return (
     <>
-      <Home></Home>
+      <ThemeProvider>
+        <Home />
+      </ThemeProvider>
     </>
   );
 }

@@ -6,8 +6,8 @@ interface PostProps {
 
 export const Post = ({ post }: PostProps) => {
   return (
-    <article className="p-2 sm:p-4 border rounded-lg mb-2 sm:mb-4 shadow-sm cursor-pointer">
-      <div className="hover:bg-sky-100 rounded">
+    <article className="p-2 sm:p-4 border border-gray-200 dark:border-gray600 rounded-lg mb-2 sm:mb-4 shadow-sm cursor-pointer">
+      <div className="hover:bg-sky-100 dark:hover:bg-gray-800 rounded">
         <div className="flex items-center mb-2 p-1 sm:p-2">
           <img
             src={post.author.picture}
@@ -23,7 +23,7 @@ export const Post = ({ post }: PostProps) => {
           {post.content}
         </p>
 
-        <div className="flex gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">
+        <div className="flex gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3 sm:mb-4">
           <span>❤️ {post.likes}</span>
           <span>🔄 {post.shares}</span>
         </div>
@@ -33,7 +33,7 @@ export const Post = ({ post }: PostProps) => {
         {post.reaction.map((reaction, index) => (
           <div
             key={index}
-            className="pl-2 sm:pl-4 border-l-2 border-gray-200 hover:bg-sky-100 rounded"
+            className="pl-2 sm:pl-4 border-l-2 border-gray-200 dark:border-gray-600 hover:bg-sky-100 dark:hover:bg-gray-800 rounded"
           >
             <div className="flex items-center gap-1 sm:gap-2 mb-1">
               <img
