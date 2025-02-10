@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { threadsApi } from '../../services/api';
 import { ICharacter } from '../../types/character';
+import { useThread } from '../../context/ThreadContext';
+import {
+  sampleFictionalThread,
+  sampleFictionalThread2,
+} from '../../types/thread-sample';
 
 const predefinedThemes = [
   'Technology Trends',
@@ -22,7 +27,8 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
   selectedCharacters,
 }) => {
   const [error, setError] = useState<string>('');
-  const [isLoading, setIsLoading] = useState(false);
+  const { currentThread, setCurrentThread, isGenerating, setIsGenerating } =
+    useThread();
 
   const validateCharacters = (): boolean => {
     if (selectedCharacters.length < 2) {
@@ -41,17 +47,23 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
     if (!validateCharacters()) {
       return;
     }
-    setIsLoading(true);
+    setIsGenerating(true);
 
     try {
       const threadTheme = selectedTheme || 'Technology Trends';
       const threadDto = { theme: threadTheme, characters: selectedCharacters };
       const content = await threadsApi.generateThread(threadDto);
       console.log(content);
+      setCurrentThread(content);
     } catch (error) {
       setError('Failed to generate thread. Please try again.');
+      const fallbackThread =
+        sampleFictionalThread === currentThread
+          ? sampleFictionalThread2
+          : sampleFictionalThread;
+      setCurrentThread(fallbackThread);
     } finally {
-      setIsLoading(false);
+      setIsGenerating(false);
     }
   };
 
@@ -93,12 +105,12 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
         */}
         <button
           className={`w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-3 rounded text-sm transition-colors relative ${
-            isLoading ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'
+            isGenerating ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'
           }`}
           onClick={generateThread}
-          disabled={isLoading}
+          disabled={isGenerating}
         >
-          {isLoading ? (
+          {isGenerating ? (
             <div className="flex items-center justify-center">
               <svg
                 className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
