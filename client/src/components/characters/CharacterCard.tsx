@@ -19,7 +19,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         p-2 lg:p-3 rounded-lg border-2 cursor-pointer transition-all
         ${
           isSelected
-            ? 'border-blue-500 bg-blue-50'
+            ? 'border-blue-500 bg-blue-50 dark:bg-amber-800'
             : 'border-gray-200 hover:border-blue-300'
         }
       `}
@@ -40,7 +40,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         {character.traits?.map((trait) => (
           <span
             key={trait}
-            className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded-full"
+            className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded-full dark:bg-amber-600"
           >
             {trait}
           </span>

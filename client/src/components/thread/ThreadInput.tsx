@@ -60,7 +60,7 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
           <select
             value={selectedTheme}
             onChange={(e) => setSelectedTheme(e.target.value)}
-            className="w-full p-1.5 border rounded text-sm cursor-pointer"
+            className="w-full p-1.5 border rounded text-sm cursor-pointer dark:bg-gray-600"
           >
             <option value="">Choose a theme...</option>
             {predefinedThemes.map((theme) => (
@@ -70,7 +70,11 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
             ))}
           </select>
         </div>
-        {error && <div className="text-red-500 text-sm">{error}</div>}
+        {error && (
+          <div className="text-red-500 text-sm dark:text-amber-200 dark:text-lg">
+            {error}
+          </div>
+        )}
         {/*
           <div>
           <label className="block mb-1 text-sm">Or enter your own theme:</label>
