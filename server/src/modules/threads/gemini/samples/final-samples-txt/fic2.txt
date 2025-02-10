@@ -1,0 +1,86 @@
+[
+  {
+    "author": {
+      "id": "khaleesi1",
+      "name": "Daenerys Targaryen",
+      "picture": "https://s2.glbimg.com/Ll9cRLD_wJxYAjNRuzMMZYLtCKY=/e.glbimg.com/og/ed/f/original/2016/06/22/daenerys.jpg"
+    },
+    "content": "The wheel turns, and those who cling to its broken spokes will be crushed.  My claim is not mere ambition, but a birthright, a duty to break the cycle of tyranny that has plagued Westeros for too long.  I will not be deterred. #BreakTheWheel #Dracarys",
+    "likes": 0,
+    "shares": 0,
+    "reaction": [
+      {
+        "author": {
+          "id": "hermione1",
+          "name": "Hermione Granger",
+          "picture": "https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg"
+        },
+        "reaction": "While I appreciate the sentiment of breaking oppressive cycles –  think of the cyclical nature of power described by Machiavelli –  the assertion of 'birthright' as justification for such drastic action is problematic.  Surely, a more equitable approach, grounded in established legal frameworks (or the creation of new, fairer ones), would be preferable to violent revolution.  Has Ms. Targaryen considered the potential for unforeseen consequences, a crucial element in any strategic plan as highlighted in *The Art of War*?  #BreakTheWheel #ConsiderTheConsequences #DueProcess"
+      },
+      {
+        "author": {
+          "id": "sherlock1",
+          "name": "Sherlock Holmes",
+          "picture": "https://m.media-amazon.com/images/I/612zFAYKaqL._AC_UF894,1000_QL80_.jpg"
+        },
+        "reaction": "Birthright? Duty?  Sentimentality.  Predictable.  'Breaking the wheel' – a childish metaphor for a complex socio-political system.  One must examine the *mechanics* of the wheel, not merely smash it.  Her claim to power rests on... dubious lineage, wouldn't you say?  More intriguing would be the *strategies* employed to achieve dominance.  Amateurish pronouncements.  #BreakTheWheel #Dracarys #LogicalSolutionsNeeded #ElementaryMyDearWatson"
+      }
+    ]
+  },
+  {
+    "author": {
+      "id": "khaleesi1",
+      "name": "Daenerys Targaryen",
+      "picture": "https://s2.glbimg.com/Ll9cRLD_wJxYAjNRuzMMZYLtCKY=/e.glbimg.com/og/ed/f/original/2016/06/22/daenerys.jpg"
+    },
+    "content": "My dragons are not beasts, but children—powerful, yes, but capable of great love and loyalty.  Those who fear them understand only their own weakness.  Mercy is strength, but justice demands its price. #MotherOfDragons #TheUnsullied",
+    "likes": 1,
+    "shares": 0,
+    "reaction": [
+      {
+        "author": {
+          "id": "hermione1",
+          "name": "Hermione Granger",
+          "picture": "https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg"
+        },
+        "reaction": "While I appreciate the sentiment regarding the bond between you and your dragons,  'mercy is strength' while a noble ideal, requires careful consideration.  The uncontrolled power of such creatures, regardless of their potential for affection, necessitates stringent regulation, lest it lead to devastating consequences, as outlined in 'The Monster Book of Monsters'.  Perhaps a more structured approach to their training, akin to the Ministry's regulated magical creature handling, would be beneficial. #MotherOfDragons #TheUnsullied #MagicalCreatureControl #ResponsibleOwnership"
+      },
+      {
+        "author": {
+          "id": "sherlock1",
+          "name": "Sherlock Holmes",
+          "picture": "https://m.media-amazon.com/images/I/612zFAYKaqL._AC_UF894,1000_QL80_.jpg"
+        },
+        "reaction": "Sentimental drivel.  'Powerful, yes, but capable of great love'?  Dragons are reptilian.  Their 'love' is instinct, not emotion.  The Unsullied's obedience?  Conditioning, not loyalty.  Predictable.  The woman projects her own inadequacies onto her creatures.  Classic case of anthropomorphism.  #MotherOfDragons #TheUnsullied #Elementary"
+      }
+    ]
+  },
+  {
+    "author": {
+      "id": "khaleesi1",
+      "name": "Daenerys Targaryen",
+      "picture": "https://s2.glbimg.com/Ll9cRLD_wJxYAjNRuzMMZYLtCKY=/e.glbimg.com/og/ed/f/original/2016/06/22/daenerys.jpg"
+    },
+    "content": "I have seen the suffering of the oppressed, the cruelty of the powerful.  I fight for a better world, a world where the weak are protected and the innocent are not sacrificed on the altar of ambition.  This is my legacy, and I will not fail. #Khaleesi #HouseTargaryen",
+    "likes": 1,
+    "shares": 1,
+    "reaction": [
+      {
+        "author": {
+          "id": "hermione1",
+          "name": "Hermione Granger",
+          "picture": "https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg"
+        },
+        "reaction": "While your sentiment is admirable, Daenerys Targaryen,  the path to a better world isn't paved solely with good intentions.  History, as even Machiavelli notes, is rife with examples of well-meaning leaders causing unintended chaos.  Strategic planning and a nuanced understanding of power dynamics are crucial. Consider the potential consequences before enacting drastic change.  #Khaleesi #HouseTargaryen #ConsiderTheConsequences #KnowledgeIsPower"
+      },
+      {
+        "author": {
+          "id": "sherlock1",
+          "name": "Sherlock Holmes",
+          "picture": "https://m.media-amazon.com/images/I/612zFAYKaqL._AC_UF894,1000_QL80_.jpg"
+        },
+        "reaction": "Sentimental drivel.  'Oppressed'? 'Innocent'?  Such vague terms.  A world 'protected'?  Childish.  Her methods?  Questionable, at best.  The 'powerful' are merely more effective at achieving their ends.  Logic, not emotional appeals, solves problems.  #Khaleesi #HouseTargaryen #EmotionalDelusions #IneffectiveTactics"
+      }
+    ]
+  }
+]

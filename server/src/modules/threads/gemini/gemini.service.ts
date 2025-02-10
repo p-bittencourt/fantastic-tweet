@@ -22,7 +22,11 @@ export class GeminiService {
     private readonly tokensService: TokensService,
     private readonly errorHandler: GeminiErrorHandler,
   ) {}
-  async generateThread(topic: string, characters: ICharacter[]) {
+  async generateThread(
+    topic: string,
+    characters: ICharacter[],
+  ): Promise<Post[]> {
+    // TODO: Creat Thread type which has a title
     try {
       const initialThread = await this.createInitialThread(
         topic,
@@ -34,6 +38,7 @@ export class GeminiService {
       );
       this.logger.debug('Final thread', finalThread);
       this.handleTokens();
+      return finalThread;
     } catch (error) {
       this.errorHandler.handleGeminiError(error, 'Generate thread');
       // this.logger.error(`Failed to generat thread: ${error.message}`);

@@ -22,9 +22,9 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
   selectedCharacters,
 }) => {
   const generateThread = async () => {
+    // TODO: if more than 4 characters selected, trim it
     const threadDto = { theme: selectedTheme, characters: selectedCharacters };
-    console.log(threadDto);
-    const content = await threadsApi.getAll();
+    const content = await threadsApi.generateThread(threadDto);
     console.log(content);
   };
 
