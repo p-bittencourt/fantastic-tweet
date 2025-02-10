@@ -6,7 +6,7 @@ interface PostProps {
 
 export const Post = ({ post }: PostProps) => {
   return (
-    <article className="p-2 sm:p-4 border border-gray-200 dark:border-gray600 rounded-lg mb-2 sm:mb-4 shadow-sm cursor-pointer">
+    <article className="p-2 sm:p-4 border bg-amber-50 border-gray-200 dark:border-gray600 rounded-lg mb-2 sm:mb-4 shadow-sm cursor-pointer">
       <div className="hover:bg-sky-100 dark:hover:bg-gray-800 rounded">
         <div className="flex items-center mb-2 p-1 sm:p-2">
           <img
