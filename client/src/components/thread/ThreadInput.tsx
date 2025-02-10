@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { threadsApi } from '../../services/api';
+import { ICharacter } from '../../types/character';
 
 const predefinedThemes = [
   'Technology Trends',
@@ -9,11 +10,20 @@ const predefinedThemes = [
   'Career Advice',
 ];
 
-const ThreadInput: React.FC = () => {
-  const [selectedTheme, setSelectedTheme] = useState('');
-  // const [customTheme, setCustomTheme] = useState('');
+interface ThreadInputProps {
+  selectedTheme: string;
+  setSelectedTheme: (theme: string) => void;
+  selectedCharacters: ICharacter[];
+}
 
+const ThreadInput: React.FC<ThreadInputProps> = ({
+  selectedTheme,
+  setSelectedTheme,
+  selectedCharacters,
+}) => {
   const generateThread = async () => {
+    const threadDto = { theme: selectedTheme, characters: selectedCharacters };
+    console.log(threadDto);
     const content = await threadsApi.getAll();
     console.log(content);
   };
