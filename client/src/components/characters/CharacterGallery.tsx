@@ -14,6 +14,9 @@ const CharacterGallery: React.FC<CharacterGalleryProps> = ({
 }) => {
   const toggleCharacterSelection = (character: ICharacter) => {
     const isSelected = selectedCharacters.includes(character);
+    if (!isSelected && selectedCharacters.length >= 4) {
+      return;
+    }
     const updatedSelection = isSelected
       ? selectedCharacters.filter((c) => c.id !== character.id)
       : [...selectedCharacters, character];
@@ -31,6 +34,10 @@ const CharacterGallery: React.FC<CharacterGalleryProps> = ({
             character={character}
             isSelected={selectedCharacters.includes(character)}
             onSelect={() => toggleCharacterSelection(character)}
+            disabled={
+              !selectedCharacters.includes(character) &&
+              selectedCharacters.length >= 4
+            }
           />
         ))}
       </div>

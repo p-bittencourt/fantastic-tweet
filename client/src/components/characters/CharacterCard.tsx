@@ -5,6 +5,7 @@ interface CharacterCardProps {
   character: ICharacter;
   isSelected?: boolean;
   onSelect?: (id: string) => void;
+  disabled?: boolean;
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({

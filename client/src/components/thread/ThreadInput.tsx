@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { threadsApi } from '../../services/api';
 import { ICharacter } from '../../types/character';
 
@@ -21,11 +21,29 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
   setSelectedTheme,
   selectedCharacters,
 }) => {
+  const [error, setError] = useState<string>('');
+
+  const validateCharacters = (): boolean => {
+    if (selectedCharacters.length < 2) {
+      setError('Please select at least 2 characters for the thread');
+      return false;
+    }
+    if (selectedCharacters.length > 4) {
+      setError('Please select no more than 4 characters');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
   const generateThread = async () => {
-    // TODO: Limit character selection to 4 and warn user
-    // TODO: Character selection cannot be empty
     // TODO: Inform users that the first selected character is the one that generates the initial thread
     // TODO: Indicate that it's loading and waiting for an answer
+
+    if (!validateCharacters()) {
+      return;
+    }
+
     const threadTheme =
       selectedTheme === '' ? 'Technology Trends' : selectedTheme;
     const threadDto = { theme: threadTheme, characters: selectedCharacters };
@@ -52,6 +70,7 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
             ))}
           </select>
         </div>
+        {error && <div className="text-red-500 text-sm">{error}</div>}
         {/*
           <div>
           <label className="block mb-1 text-sm">Or enter your own theme:</label>
