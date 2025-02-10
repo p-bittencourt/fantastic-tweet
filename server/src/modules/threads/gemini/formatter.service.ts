@@ -61,6 +61,7 @@ export class FormatterService {
         author: {
           id: author.id,
           name: author.name,
+          picture: author.imageUrl,
         },
         reaction: jsonReaction.reaction,
         like: Boolean(jsonReaction.like),
@@ -96,6 +97,7 @@ export class FormatterService {
           author: {
             id: character.id,
             name: character.name,
+            picture: character.imageUrl,
           },
           content: jsonThread.post1,
           likes: 0,
@@ -106,6 +108,7 @@ export class FormatterService {
           author: {
             id: character.id,
             name: character.name,
+            picture: character.imageUrl,
           },
           content: jsonThread.post2,
           likes: 0,
@@ -116,6 +119,7 @@ export class FormatterService {
           author: {
             id: character.id,
             name: character.name,
+            picture: character.imageUrl,
           },
           content: jsonThread.post3,
           likes: 0,
@@ -126,6 +130,7 @@ export class FormatterService {
           author: {
             id: character.id,
             name: character.name,
+            picture: character.imageUrl,
           },
           content: jsonThread.post4,
           likes: 0,

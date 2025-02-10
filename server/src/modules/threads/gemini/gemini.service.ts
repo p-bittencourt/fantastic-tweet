@@ -2,14 +2,15 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ICharacter } from '../../characters/types/character.type';
 import { GenerativeModel } from '@google/generative-ai';
 import { GEMINI_MODEL } from './gemini.provider';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 import { Post, Reaction } from '../types/thread.types';
 import { FormatterService } from './formatter.service';
 import { PromptService } from './prompt.service';
 import { TokensService } from './tokens.service';
 import { GeminiErrorHandler } from './exceptions/gemini.error.handler';
-import { ThreadGenerationException } from './exceptions/gemini.exceptions';
+import {
+  GeminiBaseException,
+  ThreadGenerationException,
+} from './exceptions/gemini.exceptions';
 
 @Injectable()
 export class GeminiService {
@@ -34,8 +35,15 @@ export class GeminiService {
       this.logger.debug('Final thread', finalThread);
       this.handleTokens();
     } catch (error) {
-      this.logger.error(`Failed to generat thread: ${error.message}`);
-      throw new ThreadGenerationException('Failed to generate thread content');
+      this.errorHandler.handleGeminiError(error, 'Generate thread');
+      // this.logger.error(`Failed to generat thread: ${error.message}`);
+      // if (error instanceof GeminiBaseException) {
+      //   throw error;
+      // } else {
+      //   throw new ThreadGenerationException(
+      //     'Failed to generate thread content',
+      //   );
+      // }
     }
   }
 
@@ -44,7 +52,6 @@ export class GeminiService {
     characters: ICharacter[],
   ): Promise<Post[]> {
     const finalThread: Post[] = [];
-
     for (let i = 0; i < thread.length; i++) {
       for (let j = 1; j < characters.length; j++) {
         const reaction = await this.reactToPost(
@@ -70,21 +77,16 @@ export class GeminiService {
     topic: string,
     character: ICharacter,
   ): Promise<Post[]> {
-    try {
-      const prompt = this.promptService.createInitialThreadPrompt(
-        topic,
-        character,
-      );
-      const output = await this.model.generateContent(prompt);
-      const response = output.response;
-      this.tokensService.countTokens(response.usageMetadata);
-      const text = response.text();
-      const formattedText = this.formatter.formatInitialThread(text, character);
-      return formattedText;
-    } catch (error) {
-      this.logger.error(`Failed to create initial post: ${error.message}`);
-      this.errorHandler.handleGeminiError(error, 'create initial thread');
-    }
+    const prompt = this.promptService.createInitialThreadPrompt(
+      topic,
+      character,
+    );
+    const output = await this.model.generateContent(prompt);
+    const response = output.response;
+    this.tokensService.countTokens(response.usageMetadata);
+    const text = response.text();
+    const formattedText = this.formatter.formatInitialThread(text, character);
+    return formattedText;
   }
 
   private async reactToPost(

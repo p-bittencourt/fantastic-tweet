@@ -2,6 +2,7 @@ export interface Reaction {
   author: {
     id: string;
     name: string;
+    picture?: string;
   };
   reaction: string;
   like?: boolean;
@@ -12,6 +13,7 @@ export interface Post {
   author: {
     id: string;
     name: string;
+    picture?: string;
   };
   content: string;
   likes: number;
