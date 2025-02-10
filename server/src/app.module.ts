@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { CharactersModule } from './modules/characters/characters.module';
 import { ThreadsModule } from './modules/threads/threads.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -14,5 +15,6 @@ import { ThreadsModule } from './modules/threads/threads.module';
     CharactersModule,
     ThreadsModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { threadsApi } from '../../services/api';
 
 const predefinedThemes = [
   'Technology Trends',
@@ -11,6 +12,11 @@ const predefinedThemes = [
 const ThreadInput: React.FC = () => {
   const [selectedTheme, setSelectedTheme] = useState('');
   // const [customTheme, setCustomTheme] = useState('');
+
+  const generateThread = async () => {
+    const content = await threadsApi.getAll();
+    console.log(content);
+  };
 
   return (
     <div className="p-3 lg:p-4 bg-white rounded-lg shadow dark:bg-amber-700">
@@ -45,9 +51,7 @@ const ThreadInput: React.FC = () => {
         */}
         <button
           className="w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-3 rounded text-sm transition-colors cursor-pointer"
-          onClick={() => {
-            /* TODO: handle generation */
-          }}
+          onClick={generateThread}
         >
           Generate Thread
         </button>
