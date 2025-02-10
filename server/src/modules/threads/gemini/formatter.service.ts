@@ -7,43 +7,33 @@ import { ICharacter } from 'src/modules/characters/types/character.type';
 export class FormatterService {
   private readonly logger = new Logger(FormatterService.name);
 
-  private cleanMarkdownFormatting(text: string): string {
-    return text
-      .replace(/```json\n?/g, '')
-      .replace(/^json\n?/g, '')
-      .replace(/```\n?/g, '')
-      .trim();
-  }
-
-  private sanitizeJson(text: string): string {
-    return (
-      text
-        // Replace curly quotes with straight quotes
-        .replace(/[""]/g, '"')
-        // Replace any other potentially problematic Unicode quotes
-        .replace(/['']/g, "'")
-        // Handle any potential line endings
-        .replace(/\r\n/g, '\n')
-        // Remove any potential BOM
-        .replace(/^\uFEFF/, '')
-        // Handle escaped quotes within text
-        .replace(/(?<!\\)\\"/g, '"')
-    );
-  }
-
-  private safeJsonParse(text: string): any {
+  formatInitialThread(thread: string, character: ICharacter): Post[] {
     try {
-      return JSON.parse(text);
-    } catch (error) {
-      const sanitized = this.sanitizeJson(text);
-      try {
-        // Try to clean up the JSON string if initial parse fails
-        return JSON.parse(sanitized);
-      } catch (secondError) {
-        throw new ContentFormattingException(
-          `Failed to parse JSON: ${secondError.message}`,
-        );
+      const cleanInput = this.cleanMarkdownFormatting(thread);
+      const jsonThread = this.safeJsonParse(cleanInput);
+
+      const posts: Post[] = ['post1', 'post2', 'post3', 'post4'].map((key) => ({
+        author: {
+          id: character.id,
+          name: character.name,
+          picture: character.imageUrl,
+        },
+        content: jsonThread[key],
+        likes: 0,
+        shares: 0,
+        reaction: [],
+      }));
+
+      const validPosts = posts.filter((post) => post.content !== undefined);
+
+      if (validPosts.length === 0) {
+        throw new ContentFormattingException('No valid posts found in thread');
       }
+
+      return validPosts;
+    } catch (error) {
+      this.logger.error(`Failed to format thread: ${error.message}`);
+      throw new ContentFormattingException('Failed to format thread');
     }
   }
 
@@ -87,82 +77,43 @@ export class FormatterService {
     return post;
   }
 
-  formatInitialThread(thread: string, character: ICharacter): Post[] {
+  private cleanMarkdownFormatting(text: string): string {
+    return text
+      .replace(/```json\n?/g, '')
+      .replace(/^json\n?/g, '')
+      .replace(/```\n?/g, '')
+      .trim();
+  }
+
+  private sanitizeJson(text: string): string {
+    return (
+      text
+        // Replace curly quotes with straight quotes
+        .replace(/[""]/g, '"')
+        // Replace any other potentially problematic Unicode quotes
+        .replace(/['']/g, "'")
+        // Handle any potential line endings
+        .replace(/\r\n/g, '\n')
+        // Remove any potential BOM
+        .replace(/^\uFEFF/, '')
+        // Handle escaped quotes within text
+        .replace(/(?<!\\)\\"/g, '"')
+    );
+  }
+
+  private safeJsonParse(text: string): any {
     try {
-      const cleanInput = this.cleanMarkdownFormatting(thread);
-      const jsonThread = this.safeJsonParse(cleanInput);
-
-      const posts: Post[] = ['post1', 'post2', 'post3', 'post4'].map((key) => ({
-        author: {
-          id: character.id,
-          name: character.name,
-          picture: character.imageUrl,
-        },
-        content: jsonThread[key],
-        likes: 0,
-        shares: 0,
-        reaction: [],
-      }));
-
-      /*
-      const posts: Post[] = [
-        {
-          author: {
-            id: character.id,
-            name: character.name,
-            picture: character.imageUrl,
-          },
-          content: jsonThread.post1,
-          likes: 0,
-          shares: 0,
-          reaction: [],
-        },
-        {
-          author: {
-            id: character.id,
-            name: character.name,
-            picture: character.imageUrl,
-          },
-          content: jsonThread.post2,
-          likes: 0,
-          shares: 0,
-          reaction: [],
-        },
-        {
-          author: {
-            id: character.id,
-            name: character.name,
-            picture: character.imageUrl,
-          },
-          content: jsonThread.post3,
-          likes: 0,
-          shares: 0,
-          reaction: [],
-        },
-        {
-          author: {
-            id: character.id,
-            name: character.name,
-            picture: character.imageUrl,
-          },
-          content: jsonThread.post4,
-          likes: 0,
-          shares: 0,
-          reaction: [],
-        },
-      ];
-      */
-
-      const validPosts = posts.filter((post) => post.content !== undefined);
-
-      if (validPosts.length === 0) {
-        throw new ContentFormattingException('No valid posts found in thread');
-      }
-
-      return validPosts;
+      return JSON.parse(text);
     } catch (error) {
-      this.logger.error(`Failed to format thread: ${error.message}`);
-      throw new ContentFormattingException('Failed to format thread');
+      const sanitized = this.sanitizeJson(text);
+      try {
+        // Try to clean up the JSON string if initial parse fails
+        return JSON.parse(sanitized);
+      } catch (secondError) {
+        throw new ContentFormattingException(
+          `Failed to parse JSON: ${secondError.message}`,
+        );
+      }
     }
   }
 }

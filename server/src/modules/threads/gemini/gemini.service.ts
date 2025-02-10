@@ -24,6 +24,7 @@ export class GeminiService {
   ): Promise<Thread> {
     // TODO: Creat Thread type which has a title
     try {
+      this.logger.debug(`Topic: ${topic}`);
       const initialThread = await this.createInitialThread(
         topic,
         characters[0],
@@ -32,12 +33,12 @@ export class GeminiService {
         initialThread,
         characters,
       );
-      this.logger.debug('Final thread', finalThread);
       this.handleTokens();
-      const output: Thread = {
+      const output = {
         theme: topic,
         posts: finalThread,
-      };
+      } as Thread;
+      this.logger.debug('Output', output.theme);
       return output;
     } catch (error) {
       this.errorHandler.handleGeminiError(error, 'Generate thread');

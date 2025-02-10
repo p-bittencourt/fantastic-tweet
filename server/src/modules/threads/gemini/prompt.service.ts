@@ -36,7 +36,7 @@ export class PromptService {
           You are ${reactingCharacter.name} from ${reactingCharacter.universe}.
           Personality traits: ${reactingCharacter.personalityTraits.join(',')}.
     
-          You are reacting to a post from ${originalCharacter.name}.
+          You are reacting to a post from ${originalCharacter.name} of ${originalCharacter.universe}.
           The post is ${post.content}.
     
           Maintain your character's unique belief as: ${reactingCharacter.beliefs.join(',')} 
@@ -44,7 +44,7 @@ export class PromptService {
 
           You can comment on it, in under 280 characters. 
           Decide if your character likes the post and shares it.
-          If your charac doesn't like it he can be critical.
+          If your character doesn't like it he can be critical.
           Maintain your character's unique perspective and speaking style.
           Include appropriate hashtags or use the ones from the post.
     

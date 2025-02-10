@@ -2,16 +2,16 @@ import { Injectable, Logger } from '@nestjs/common';
 import { CreateThreadDto } from './dto/create-thread.dto';
 import { UpdateThreadDto } from './dto/update-thread.dto';
 import { GeminiService } from './gemini/gemini.service';
-import { Post } from './types/thread.types';
+import { Thread } from './types/thread.types';
 
 @Injectable()
 export class ThreadsService {
   private readonly logger = new Logger(ThreadsService.name);
   constructor(private geminiService: GeminiService) {}
-  async create(createThreadDto: CreateThreadDto): Promise<Post[]> {
+  async create(createThreadDto: CreateThreadDto): Promise<Thread> {
     try {
       const output = await this.geminiService.generateThread(
-        createThreadDto.topic,
+        createThreadDto.theme,
         createThreadDto.characters,
       );
       return output;

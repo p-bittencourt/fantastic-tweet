@@ -38,16 +38,13 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
   };
 
   const generateThread = async () => {
-    // TODO: Inform users that the first selected character is the one that generates the initial thread
-
     if (!validateCharacters()) {
       return;
     }
     setIsLoading(true);
 
     try {
-      const threadTheme =
-        selectedTheme === '' ? 'Technology Trends' : selectedTheme;
+      const threadTheme = selectedTheme || 'Technology Trends';
       const threadDto = { theme: threadTheme, characters: selectedCharacters };
       const content = await threadsApi.generateThread(threadDto);
       console.log(content);

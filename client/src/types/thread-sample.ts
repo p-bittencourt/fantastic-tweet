@@ -137,3 +137,141 @@ export const sampleFictionalThread: Thread = {
     },
   ],
 };
+
+export const sampleFictionalThread2: Thread = {
+  theme: 'Personal Growth',
+  posts: [
+    {
+      author: {
+        id: 'hermione1',
+        name: 'Hermione Granger',
+        picture:
+          'https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg',
+      },
+      content:
+        "Personal growth isn't merely about achieving academic excellence, though that's certainly a component.  It's about continuous self-improvement, much like mastering a complex spell.  One must diligently study oneself, identify weaknesses (like my initial over-reliance on books!), and actively work to overcome them. #PersonalDevelopment #GrowthMindset #WitBeyondMeasure",
+      likes: 3,
+      shares: 2,
+      reaction: [
+        {
+          author: {
+            id: 'batman1',
+            name: 'Bruce Wayne',
+            picture:
+              'https://i.pinimg.com/736x/48/51/60/485160c55c513f8eac38027385f38a52.jpg',
+          },
+          reaction:
+            "Interesting.  Self-improvement through calculated weakness analysis?  Sounds familiar.  Gotham's villains are predictable in their fear, a weakness I exploit.  #GrowthMindset #PersonalDevelopment  #FearIsATool",
+        },
+        {
+          author: {
+            id: 'lara1',
+            name: 'Lara Croft',
+            picture:
+              'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/05/20/lara-croft-1h7gdz69qqn90.jpg',
+          },
+          reaction:
+            "Fascinating perspective, Ms. Granger.  Self-improvement mirrors the meticulous excavation of a tomb – patience, precision, and a willingness to confront unexpected challenges (like those pesky traps!). While academic knowledge is crucial, practical application, and understanding the potential consequences of one's actions are paramount.  #PersonalDevelopment #GrowthMindset #AncientWisdom #ConsequencesMatter",
+        },
+        {
+          author: {
+            id: 'wonder1',
+            name: 'Diana Prince',
+            picture:
+              'https://www.ligadoemviagem.com.br/wp-content/uploads/2017/06/Cr%C3%ADtica-Filme-Mulher-Maravilha-Wonder-Woman-2017-Poster.jpg',
+          },
+          reaction:
+            'Wise words, Hermione!  On Themyscira, we learn strength through rigorous training, but also through understanding our inner selves.  Self-knowledge is as crucial as any weapon.  The fight for justice needs both! #PersonalDevelopment #GrowthMindset #WitBeyondMeasure #PeaceThroughStrength',
+        },
+      ],
+    },
+    {
+      author: {
+        id: 'hermione1',
+        name: 'Hermione Granger',
+        picture:
+          'https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg',
+      },
+      content:
+        'Remember the importance of strategic planning, a concept I found invaluable during numerous challenging situations, from navigating the Triwizard Tournament to combating Voldemort.  Setting clear, achievable goals – much like charting a course using a reliable map – allows for focused progress and avoids unnecessary setbacks.  #StrategicPlanning #GoalSetting #PreparationIsKey',
+      likes: 2,
+      shares: 2,
+      reaction: [
+        {
+          author: {
+            id: 'batman1',
+            name: 'Bruce Wayne',
+            picture:
+              'https://i.pinimg.com/736x/48/51/60/485160c55c513f8eac38027385f38a52.jpg',
+          },
+          reaction:
+            "Amateur.  'Clear, achievable goals'?  Gotham's not a school project, Granger.  Fear, intimidation... *those* are your maps.  #StrategicPlanning #GothamNeedsSaving #FearIsPower",
+        },
+        {
+          author: {
+            id: 'lara1',
+            name: 'Lara Croft',
+            picture:
+              'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/05/20/lara-croft-1h7gdz69qqn90.jpg',
+          },
+          reaction:
+            "Hmm, sound advice, Granger.  Strategic planning is crucial, yes, but sometimes the most compelling clues lead you down unexpected paths.  One can't always predict a crumbling tomb or a vengeful god, can one? #StrategicPlanning #PreparationIsKey #ImprobableSituations #ArchaeologicalAdventure",
+        },
+        {
+          author: {
+            id: 'wonder1',
+            name: 'Diana Prince',
+            picture:
+              'https://www.ligadoemviagem.com.br/wp-content/uploads/2017/06/Cr%C3%ADtica-Filme-Mulher-Maravilha-Wonder-Woman-2017-Poster.jpg',
+          },
+          reaction:
+            'Wise words, Hermione!  On Themyscira, we learn strategy is as vital as courage.  Facing Ares taught me that, and battling Cheetah showed the need for adaptable plans.  Peace through strength, indeed! #StrategicPlanning #PreparationIsKey #GoalSetting #StrengthAndWisdom',
+        },
+      ],
+    },
+    {
+      author: {
+        id: 'hermione1',
+        name: 'Hermione Granger',
+        picture:
+          'https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg',
+      },
+      content:
+        'Finally, embracing ethical considerations is paramount. While rules are generally essential for maintaining order (think about the Statute of Secrecy!),  we must always assess if upholding a rule causes more harm than good.  Justice, equality, and empathy should guide our choices, not just rigid adherence to arbitrary regulations. #EthicalConsiderations #JusticeForAll #MagicalEquality',
+      likes: 2,
+      shares: 1,
+      reaction: [
+        {
+          author: {
+            id: 'batman1',
+            name: 'Bruce Wayne',
+            picture:
+              'https://i.pinimg.com/736x/48/51/60/485160c55c513f8eac38027385f38a52.jpg',
+          },
+          reaction:
+            "Rules? In Gotham?  Cute.  Justice isn't a rulebook, it's a bat in the night.  Fear is a powerful tool.  See how many muggers *really* care about 'equality' when facing consequences. #EthicalConsiderations #GothamNeedsSaving",
+        },
+        {
+          author: {
+            id: 'lara1',
+            name: 'Lara Croft',
+            picture:
+              'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/05/20/lara-croft-1h7gdz69qqn90.jpg',
+          },
+          reaction:
+            "Hmm, interesting sentiment, Ms. Granger.  While I agree that blind adherence to rules can be...problematic (think the fate of certain Sumerian tablets!),  'ethical considerations' are highly contextual. Some artifacts are simply too potent for public access, regardless of intent.  Actions have consequences, wouldn't you agree? #EthicalConsiderations #JusticeForAll (but also #ArchaeologicalResponsibility)",
+        },
+        {
+          author: {
+            id: 'wonder1',
+            name: 'Diana Prince',
+            picture:
+              'https://www.ligadoemviagem.com.br/wp-content/uploads/2017/06/Cr%C3%ADtica-Filme-Mulher-Maravilha-Wonder-Woman-2017-Poster.jpg',
+          },
+          reaction:
+            "Hermione, your words resonate deeply.  On Themyscira, we learned that even the strongest warrior must temper strength with wisdom and compassion.  Upholding truth, even when difficult, always brings us closer to justice.  A shared understanding, like the Amazons' sisterhood, is the greatest magic. #EthicalConsiderations #JusticeForAll #MagicalEquality #PeaceThroughStrength",
+        },
+      ],
+    },
+  ],
+};
