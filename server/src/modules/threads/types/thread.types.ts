@@ -22,8 +22,6 @@ export interface Post {
 }
 
 export interface Thread {
-  post1: Post;
-  post2: Post;
-  post3?: Post;
-  post4?: Post;
+  theme: string;
+  posts: Post[];
 }

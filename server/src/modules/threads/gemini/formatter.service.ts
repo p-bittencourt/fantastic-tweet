@@ -92,6 +92,19 @@ export class FormatterService {
       const cleanInput = this.cleanMarkdownFormatting(thread);
       const jsonThread = this.safeJsonParse(cleanInput);
 
+      const posts: Post[] = ['post1', 'post2', 'post3', 'post4'].map((key) => ({
+        author: {
+          id: character.id,
+          name: character.name,
+          picture: character.imageUrl,
+        },
+        content: jsonThread[key],
+        likes: 0,
+        shares: 0,
+        reaction: [],
+      }));
+
+      /*
       const posts: Post[] = [
         {
           author: {
@@ -138,6 +151,7 @@ export class FormatterService {
           reaction: [],
         },
       ];
+      */
 
       const validPosts = posts.filter((post) => post.content !== undefined);
 

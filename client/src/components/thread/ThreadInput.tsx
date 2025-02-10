@@ -22,8 +22,13 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
   selectedCharacters,
 }) => {
   const generateThread = async () => {
-    // TODO: if more than 4 characters selected, trim it
-    const threadDto = { theme: selectedTheme, characters: selectedCharacters };
+    // TODO: Limit character selection to 4 and warn user
+    // TODO: Character selection cannot be empty
+    // TODO: Inform users that the first selected character is the one that generates the initial thread
+    // TODO: Indicate that it's loading and waiting for an answer
+    const threadTheme =
+      selectedTheme === '' ? 'Technology Trends' : selectedTheme;
+    const threadDto = { theme: threadTheme, characters: selectedCharacters };
     const content = await threadsApi.generateThread(threadDto);
     console.log(content);
   };

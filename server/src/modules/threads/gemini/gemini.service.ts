@@ -2,15 +2,11 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ICharacter } from '../../characters/types/character.type';
 import { GenerativeModel } from '@google/generative-ai';
 import { GEMINI_MODEL } from './gemini.provider';
-import { Post, Reaction } from '../types/thread.types';
+import { Post, Reaction, Thread } from '../types/thread.types';
 import { FormatterService } from './formatter.service';
 import { PromptService } from './prompt.service';
 import { TokensService } from './tokens.service';
 import { GeminiErrorHandler } from './exceptions/gemini.error.handler';
-import {
-  GeminiBaseException,
-  ThreadGenerationException,
-} from './exceptions/gemini.exceptions';
 
 @Injectable()
 export class GeminiService {
@@ -25,7 +21,7 @@ export class GeminiService {
   async generateThread(
     topic: string,
     characters: ICharacter[],
-  ): Promise<Post[]> {
+  ): Promise<Thread> {
     // TODO: Creat Thread type which has a title
     try {
       const initialThread = await this.createInitialThread(
@@ -38,7 +34,11 @@ export class GeminiService {
       );
       this.logger.debug('Final thread', finalThread);
       this.handleTokens();
-      return finalThread;
+      const output: Thread = {
+        theme: topic,
+        posts: finalThread,
+      };
+      return output;
     } catch (error) {
       this.errorHandler.handleGeminiError(error, 'Generate thread');
       // this.logger.error(`Failed to generat thread: ${error.message}`);
@@ -57,8 +57,9 @@ export class GeminiService {
     characters: ICharacter[],
   ): Promise<Post[]> {
     const finalThread: Post[] = [];
+    const reactionLimit = characters.length <= 4 ? characters.length : 4;
     for (let i = 0; i < thread.length; i++) {
-      for (let j = 1; j < characters.length; j++) {
+      for (let j = 1; j < reactionLimit; j++) {
         const reaction = await this.reactToPost(
           thread[i],
           characters[0],

@@ -21,4 +21,7 @@ export interface Post {
   reaction: Reaction[];
 }
 
-export type Thread = Post[];
+export interface Thread {
+  theme: string;
+  posts: Post[];
+}
