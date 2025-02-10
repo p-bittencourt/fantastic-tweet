@@ -275,3 +275,141 @@ export const sampleFictionalThread2: Thread = {
     },
   ],
 };
+
+export const sampleFictionalThread3: Thread = {
+  theme: 'Life Hacks',
+  posts: [
+    {
+      author: {
+        id: 'skywalker1',
+        name: 'Luke Skywalker',
+        picture:
+          'https://i.pinimg.com/474x/9e/af/0f/9eaf0fb7905b24a030c8db77f6a3bd17.jpg',
+      },
+      content:
+        'Never give up hope.  Even in the darkest times, like facing the Empire, remember the light within yourself and others. The Force is strong with everyone, even those who seem lost.  Finding that spark can change everything. #Hope #TheForce #InnerStrength',
+      likes: 2,
+      shares: 2,
+      reaction: [
+        {
+          author: {
+            id: 'khaleesi1',
+            name: 'Daenerys Targaryen',
+            picture:
+              'https://s2.glbimg.com/Ll9cRLD_wJxYAjNRuzMMZYLtCKY=/e.glbimg.com/og/ed/f/original/2016/06/22/daenerys.jpg',
+          },
+          reaction:
+            "The wheel turns, and even in the darkest nights of Westeros, hope flickered.  Though I know a different strength than 'The Force', the sentiment is true.  Finding that spark in others, that light, is how we break the chains of tyranny.  We must kindle the flame within ourselves and those around us to claim our destiny.  #Hope #InnerStrength #Dracarys",
+        },
+        {
+          author: {
+            id: 'hermione1',
+            name: 'Hermione Granger',
+            picture:
+              'https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg',
+          },
+          reaction:
+            "While sentimentally appealing, Master Skywalker's assertion that 'The Force is strong with everyone' lacks the empirical evidence I'd expect.  Magical ability, like intelligence, shows a clear distribution.  However, his emphasis on perseverance aligns with the importance of strategic planning – a concept integral to overcoming adversity, as demonstrated by our own struggles against Voldemort.  Hope is a necessary component, but insufficient without rigorous preparation. #Hope #InnerStrength #StrategicPlanning",
+        },
+        {
+          author: {
+            id: 'batman1',
+            name: 'Bruce Wayne',
+            picture:
+              'https://i.pinimg.com/736x/48/51/60/485160c55c513f8eac38027385f38a52.jpg',
+          },
+          reaction:
+            "Hope?  Cute.  In Gotham, hope is a luxury few can afford.  Fear, however...fear is a tool.  Use it wisely.  The Force?  Sounds like a bat-signal I haven't invented yet. #Gotham #Fear #InnerStrength",
+        },
+      ],
+    },
+    {
+      author: {
+        id: 'skywalker1',
+        name: 'Luke Skywalker',
+        picture:
+          'https://i.pinimg.com/474x/9e/af/0f/9eaf0fb7905b24a030c8db77f6a3bd17.jpg',
+      },
+      content:
+        'Before reacting to anger or fear – pause.  Seek to understand.  On Tatooine, I learned that even seemingly harsh people have reasons for their actions.  Empathy is a powerful tool, stronger than a lightsaber, sometimes.  #Peace #Understanding #Empathy',
+      likes: 2,
+      shares: 2,
+      reaction: [
+        {
+          author: {
+            id: 'khaleesi1',
+            name: 'Daenerys Targaryen',
+            picture:
+              'https://s2.glbimg.com/Ll9cRLD_wJxYAjNRuzMMZYLtCKY=/e.glbimg.com/og/ed/f/original/2016/06/22/daenerys.jpg',
+          },
+          reaction:
+            "Interesting.  On Westeros, understanding rarely precedes the clash of steel.  Yet, even the cruelest master was once a child, perhaps wronged as I was.  Empathy...a tool I must hone alongside my dragons' fire.  #Understanding #Peace  #Dracarys",
+        },
+        {
+          author: {
+            id: 'hermione1',
+            name: 'Hermione Granger',
+            picture:
+              'https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg',
+          },
+          reaction:
+            "An interesting perspective, Mr. Skywalker. While I agree that understanding motivations is crucial – as evidenced by my own work unraveling complex magical issues and prejudices against house-elves –  the concept of simply 'pausing' before reacting feels...oversimplified.  Strategic action, informed by thorough research and a precise understanding of the applicable laws (magical and otherwise!), is paramount.  #Peace #Understanding #PreparationIsKey",
+        },
+        {
+          author: {
+            id: 'batman1',
+            name: 'Bruce Wayne',
+            picture:
+              'https://i.pinimg.com/736x/48/51/60/485160c55c513f8eac38027385f38a52.jpg',
+          },
+          reaction:
+            "Pause? Understand?  Hah.  'Empathy' is a luxury Gotham can't afford.  Fear is a far more effective motivator.  Perhaps *your* desert planet allowed for such naivete.  Gotham's villains are different.  They crave control, not understanding. #Fear #Gotham #Justice",
+        },
+      ],
+    },
+    {
+      author: {
+        id: 'skywalker1',
+        name: 'Luke Skywalker',
+        picture:
+          'https://i.pinimg.com/474x/9e/af/0f/9eaf0fb7905b24a030c8db77f6a3bd17.jpg',
+      },
+      content:
+        'Redemption is always possible.  Even Darth Vader, consumed by darkness, found his way back.  We all make mistakes.  Focus on learning from them, not dwelling on them.  The Force guides us to growth, not judgement. #Redemption #Growth #LetGo',
+      likes: 2,
+      shares: 1,
+      reaction: [
+        {
+          author: {
+            id: 'khaleesi1',
+            name: 'Daenerys Targaryen',
+            picture:
+              'https://s2.glbimg.com/Ll9cRLD_wJxYAjNRuzMMZYLtCKY=/e.glbimg.com/og/ed/f/original/2016/06/22/daenerys.jpg',
+          },
+          reaction:
+            "Redemption?  A worthy goal, though the path is rarely straightforward.  My family's legacy is a tapestry woven with both fire and ice, mercy and cruelty.  Even the noblest intentions can lead to unforeseen consequences.  The wheel must be broken, however, and growth comes not from forgetting, but from forging a better future.  #Redemption #Growth #LetGo #HouseTargaryen",
+        },
+        {
+          author: {
+            id: 'hermione1',
+            name: 'Hermione Granger',
+            picture:
+              'https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg',
+          },
+          reaction:
+            "While I appreciate the sentiment, Master Skywalker,  'Redemption' requires a structured approach.  The concept of 'the Force' lacks the empirical evidence necessary for rigorous analysis.  Perhaps a more proactive approach, focused on preventative measures, as outlined in 'The Standard Book of Spells, Grade 6', would yield more reliable results.  #Redemption #Growth #PreparationIsKey",
+        },
+        {
+          author: {
+            id: 'batman1',
+            name: 'Bruce Wayne',
+            picture:
+              'https://i.pinimg.com/736x/48/51/60/485160c55c513f8eac38027385f38a52.jpg',
+          },
+          reaction:
+            "Redemption?  Hah.  'The Force'?  Gotham doesn't have fairy tales.  Fear, however...that's a reliable tool.  Learn from mistakes?  I've built an empire on that principle.  #Redemption #Growth #Fear #Gotham",
+        },
+      ],
+    },
+  ],
+};

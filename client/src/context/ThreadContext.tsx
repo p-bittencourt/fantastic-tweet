@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Thread } from '../types/thread.types';
-import { sampleFictionalThread } from '../types/thread-sample';
+import { useRandomThread } from '../util/random-thread';
 
 interface ThreadContextType {
   currentThread: Thread;
@@ -14,9 +14,7 @@ const ThreadContext = createContext<ThreadContextType | undefined>(undefined);
 export const ThreadProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [currentThread, setCurrentThread] = useState<Thread>(
-    sampleFictionalThread
-  );
+  const [currentThread, setCurrentThread] = useState<Thread>(useRandomThread());
   const [isGenerating, setIsGenerating] = useState(false);
 
   return (

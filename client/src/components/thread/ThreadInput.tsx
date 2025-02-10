@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { threadsApi } from '../../services/api';
 import { ICharacter } from '../../types/character';
 import { useThread } from '../../context/ThreadContext';
-import {
-  sampleFictionalThread,
-  sampleFictionalThread2,
-} from '../../types/thread-sample';
+import { useRandomThread } from '../../util/random-thread';
 
 const predefinedThemes = [
   'Technology Trends',
@@ -27,8 +24,7 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
   selectedCharacters,
 }) => {
   const [error, setError] = useState<string>('');
-  const { currentThread, setCurrentThread, isGenerating, setIsGenerating } =
-    useThread();
+  const { setCurrentThread, isGenerating, setIsGenerating } = useThread();
 
   const validateCharacters = (): boolean => {
     if (selectedCharacters.length < 2) {
@@ -57,10 +53,7 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
       setCurrentThread(content);
     } catch (error) {
       setError('Failed to generate thread. Please try again.');
-      const fallbackThread =
-        sampleFictionalThread === currentThread
-          ? sampleFictionalThread2
-          : sampleFictionalThread;
+      const fallbackThread = useRandomThread();
       setCurrentThread(fallbackThread);
     } finally {
       setIsGenerating(false);
