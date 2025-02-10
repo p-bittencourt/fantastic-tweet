@@ -32,7 +32,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         />
       </div>
       <h3 className="font-bold text-sm lg:text-base mb-1">{character.name}</h3>
-      <p className="text-gray-600 text-xs lg:text-sm mb-2">
+      <p className="text-gray-600 dark:text-gray-300 text-xs lg:text-sm mb-2">
         {character.universe}
       </p>
       <div className="flex flex-wrap gap-1">

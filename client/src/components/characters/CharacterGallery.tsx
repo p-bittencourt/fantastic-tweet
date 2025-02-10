@@ -6,7 +6,7 @@ const CharacterGallery: React.FC = () => {
   const [selectedCharacterId, setSelectedCharacterId] = useState<string>('');
 
   return (
-    <div className="p-3 lg:p-4 bg-white rounded-lg shadow">
+    <div className="p-3 lg:p-4 bg-white dark:bg-amber-700 rounded-lg shadow">
       <h2 className="text-lg lg:text-xl font-bold mb-3">
         Available Characters
       </h2>
