@@ -48,9 +48,7 @@ export const Thread = () => {
   }
   return (
     <div className="max-w-2xl mx-auto p-2 sm:p-4 dark:bg-gray900 dark:text-gray-200">
-      <h1 className="text-3xl mb-2">
-        This thread's theme: {currentThread.theme}
-      </h1>
+      <h1 className="text-3xl mb-2">Thread theme: {currentThread.theme}</h1>
       {currentThread.posts.map((post, index) => (
         <Post key={index} post={post} />
       ))}

@@ -4,6 +4,7 @@ import CharacterGallery from '../characters/CharacterGallery';
 import { Thread } from '../thread/Thread';
 import { ICharacter } from '../../types/character';
 import { ThreadProvider } from '../../context/ThreadContext';
+import About from './About';
 
 const PageContainer: React.FC = () => {
   const [selectedTheme, setSelectedTheme] = useState('');
@@ -22,7 +23,10 @@ const PageContainer: React.FC = () => {
           />
         </div>
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
-          <div className="w-full lg:w-3/4">
+          <div className="w-full lg:w-1/4">
+            <About />
+          </div>
+          <div className="w-full lg:w-1/2">
             <Thread />
           </div>
           <div className="w-full lg:w-1/4 space-y-4">
