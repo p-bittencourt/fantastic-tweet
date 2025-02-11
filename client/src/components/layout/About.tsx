@@ -5,7 +5,7 @@ const About: React.FC = () => {
     <div className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-md">
       <h2 className="text-xl font-bold mb-3">About Fantastic Tweet</h2>
       <p className="mb-4">
-        This is a portfolio project built with React, Node.js, and the Gemini
+        This is a portfolio project built with React, NestJs, and the Gemini
         API. It generates fictional conversations between characters using AI.
       </p>
 
