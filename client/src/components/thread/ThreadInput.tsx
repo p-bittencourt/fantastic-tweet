@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { threadsApi } from '../../services/api';
 import { ICharacter } from '../../types/character';
 import { useThread } from '../../context/ThreadContext';
@@ -24,7 +24,38 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
   selectedCharacters,
 }) => {
   const [error, setError] = useState<string>('');
+  const [isBackendReady, setIsBackendReady] = useState(false); // Wait for backend to wake before allowing calls to be made
   const { setCurrentThread, isGenerating, setIsGenerating } = useThread();
+
+  useEffect(() => {
+    const checkBackendHealth = async () => {
+      try {
+        const url = `${import.meta.env.VITE_API_URL}/health`;
+        if (import.meta.env.DEV) console.log(`url: ${url}`);
+        const response = await fetch(url);
+        if (response.ok) {
+          setIsBackendReady(true);
+        } else {
+          setIsBackendReady(false);
+        }
+      } catch (error) {
+        setIsBackendReady(false);
+      }
+    };
+    // Initial check
+    checkBackendHealth();
+
+    // Poll every 15 seconds until backend is ready
+    const interval = setInterval(() => {
+      if (!isBackendReady) {
+        checkBackendHealth();
+      } else {
+        clearInterval(interval);
+      }
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, [isBackendReady]);
 
   const validateCharacters = (): boolean => {
     if (selectedCharacters.length < 2) {
@@ -49,7 +80,6 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
       const threadTheme = selectedTheme || 'Technology Trends';
       const threadDto = { theme: threadTheme, characters: selectedCharacters };
       const content = await threadsApi.generateThread(threadDto);
-      console.log(content);
       setCurrentThread(content);
     } catch (error) {
       setError('Failed to generate thread. Please try again.');
@@ -59,6 +89,30 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
       setIsGenerating(false);
     }
   };
+
+  const getButtonState = () => {
+    if (!isBackendReady) {
+      return {
+        text: 'Warming up the backend...',
+        disabled: true,
+        className: 'opacity-75 cursor-not-allowed',
+      };
+    }
+    if (isGenerating) {
+      return {
+        text: 'Generating...',
+        disabled: true,
+        className: 'opacity-75 cursor-not-allowed',
+      };
+    }
+    return {
+      text: 'Generate Thread',
+      disabled: false,
+      className: 'cursor-pointer hover:bg-blue-600',
+    };
+  };
+
+  const buttonState = getButtonState();
 
   return (
     <div className="p-3 lg:p-4 bg-white rounded-lg shadow dark:bg-gray-700">
@@ -101,7 +155,7 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
             isGenerating ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'
           }`}
           onClick={generateThread}
-          disabled={isGenerating}
+          disabled={buttonState.disabled}
         >
           {isGenerating ? (
             <div className="flex items-center justify-center">
@@ -125,10 +179,10 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 ></path>
               </svg>
-              Generating...
+              {buttonState.text}
             </div>
           ) : (
-            'Generate Thread'
+            buttonState.text
           )}
         </button>
       </div>
