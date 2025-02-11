@@ -11,6 +11,7 @@ const About: React.FC = () => {
 
       <h3 className="text-lg font-bold mb-2">How To Use</h3>
       <ol className="list-decimal list-inside space-y-2">
+        <li>Wait for backend to warm</li>
         <li>Select a theme for the conversation</li>
         <li>Choose 2-4 characters from the gallery</li>
         <li>Generate the thread to see them interact!</li>

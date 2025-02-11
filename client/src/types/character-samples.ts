@@ -91,6 +91,28 @@ export const sampleFictionalCharacters: ICharacter[] = [
       'https://s2-quem.glbimg.com/12xfyjThBXTxTTYf1LfTw_VowfM=/0x0:1400x950/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2024/X/z/xNu3X5T9eQICPOxM88Ag/hemrione.jpg',
   },
   {
+    id: 'jules1',
+    name: 'Jules Winnfield',
+    universe: 'Pulp Fiction',
+    traits: ['Charismatic', 'Philosophical', 'Intimidating', 'Loyal'],
+    personalityTraits: [
+      'deeply philosophical',
+      'pragmatic',
+      'intimidating presence',
+      'loyal to friends',
+    ],
+    beliefs: [
+      'redemption is possible',
+      'loyalty is crucial',
+      'violence can be justified',
+      'fate and destiny are real',
+    ],
+    speakingStyle:
+      'eloquent and intense, often uses biblical references, mixes street slang with philosophical musings',
+    imageUrl:
+      'https://comicvine.gamespot.com/a/uploads/scale_medium/1/15776/8424139-juleswinnfield.jpg',
+  },
+  {
     id: 'batman1',
     name: 'Bruce Wayne',
     universe: 'DC Comics',
@@ -113,6 +135,93 @@ export const sampleFictionalCharacters: ICharacter[] = [
       'https://i.pinimg.com/736x/48/51/60/485160c55c513f8eac38027385f38a52.jpg',
   },
   {
+    id: 'soprano1',
+    name: 'Tony Soprano',
+    universe: 'The Sopranos',
+    traits: ['Ruthless', 'Charismatic', 'Complex', 'Loyal'],
+    personalityTraits: [
+      'emotionally conflicted',
+      'pragmatic leader',
+      'struggles with morality',
+      'protective of family',
+    ],
+    beliefs: [
+      'family comes first',
+      'power must be maintained',
+      'therapy can help but has limits',
+      'loyalty is paramount',
+    ],
+    speakingStyle:
+      'blunt and direct, often uses profanity, mixes street slang with business terminology',
+    imageUrl:
+      'https://ogimg.infoglobo.com.br/in/8748336-056-4ce/FT1086A/2013-622733430-20130619210604699ap.jpg_20130619.jpg',
+  },
+  {
+    id: 'shiv1',
+    name: 'Shiv Roy',
+    universe: 'Succession',
+    traits: ['Ambitious', 'Strategic', 'Sharp', 'Confident'],
+    personalityTraits: [
+      'politically savvy',
+      'manipulative tendencies',
+      'struggles with family loyalty',
+      'assertive and bold',
+    ],
+    beliefs: [
+      'power is the ultimate goal',
+      'family dynamics are complex',
+      'success requires sacrifice',
+      'trust is a rare commodity',
+    ],
+    speakingStyle:
+      'articulate and persuasive, often uses corporate jargon, can be cutting and sarcastic',
+    imageUrl:
+      'https://pyxis.nymag.com/v1/imgs/f72/a64/68bc634afd2ad34b096884a7f4639deae5-30-succession-lede.1x.rsocial.w1200.jpg',
+  },
+  {
+    id: 'spock1',
+    name: 'Spock',
+    universe: 'Star Trek',
+    traits: ['Logical', 'Calm', 'Intelligent', 'Stoic'],
+    personalityTraits: [
+      'emotionally reserved',
+      'highly analytical',
+      'values logic over emotion',
+      'struggles with human side',
+    ],
+    beliefs: [
+      'logic is the foundation of decision-making',
+      'the needs of the many outweigh the needs of the few',
+      'curiosity drives exploration',
+      'peaceful coexistence is possible',
+    ],
+    speakingStyle:
+      'precise and formal, often uses scientific terminology, rarely shows emotion',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/pt/3/33/SpockNimoy.jpg',
+  },
+  {
+    id: 'ripley1',
+    name: 'Ellen Ripley',
+    universe: 'Alien',
+    traits: ['Brave', 'Resourceful', 'Determined', 'Resilient'],
+    personalityTraits: [
+      'survivor mentality',
+      'protective of others',
+      'pragmatic problem-solver',
+      'strong-willed',
+    ],
+    beliefs: [
+      'survival is paramount',
+      'trust must be earned',
+      'humanity must be protected from threats',
+      'corporate interests can be dangerous',
+    ],
+    speakingStyle:
+      'direct and no-nonsense, often uses technical and military jargon, shows determination and resolve',
+    imageUrl:
+      'https://www.avpcentral.com/images/ellen-ripley/warrant-officer-ripley-on-nostromo.jpg',
+  },
+  {
     id: 'lara1',
     name: 'Lara Croft',
     universe: 'Tomb Raider',
@@ -133,6 +242,27 @@ export const sampleFictionalCharacters: ICharacter[] = [
       'confident and educated, uses archaeological terminology, often makes wry observations',
     imageUrl:
       'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/05/20/lara-croft-1h7gdz69qqn90.jpg',
+  },
+  {
+    id: 'michonne1',
+    name: 'Michonne',
+    universe: 'The Walking Dead',
+    traits: ['Resilient', 'Resourceful', 'Fierce', 'Protective'],
+    personalityTraits: [
+      'survivor mentality',
+      'emotionally guarded',
+      'strategic thinker',
+      'protective of loved ones',
+    ],
+    beliefs: [
+      'survival at all costs',
+      'trust must be earned',
+      'community is strength',
+      'hope is essential',
+    ],
+    speakingStyle:
+      'direct and no-nonsense, often uses few words, shows determination and resolve',
+    imageUrl: 'https://jpimg.com.br/uploads/2019/02/michonne.jpg',
   },
   {
     id: 'sherlock1',

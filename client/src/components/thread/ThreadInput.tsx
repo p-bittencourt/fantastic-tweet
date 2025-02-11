@@ -10,6 +10,14 @@ const predefinedThemes = [
   'Business Tips',
   'Life Hacks',
   'Career Advice',
+  'Healthy Habits',
+  'Travel Adventures',
+  'Historical Events',
+  'Science Discoveries',
+  'Book Recommendations',
+  'Fitness Routines',
+  'Parenting Tips',
+  'Financial Planning',
 ];
 
 interface ThreadInputProps {
@@ -151,9 +159,7 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
         </div>
         */}
         <button
-          className={`w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-3 rounded text-sm transition-colors relative ${
-            isGenerating ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'
-          }`}
+          className={`w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-3 rounded text-sm transition-colors relative ${buttonState.className}`}
           onClick={generateThread}
           disabled={buttonState.disabled}
         >
