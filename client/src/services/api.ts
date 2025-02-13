@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { CreateThreadDto } from '../types/create-thread.dto';
 
+const url = `${import.meta.env.VITE_API_URL}/api`;
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: url,
 });
 
 export const threadsApi = {

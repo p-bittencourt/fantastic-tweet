@@ -14,7 +14,9 @@ async function bootstrap() {
       process.env.REACT_APP_URL, // or whatever port your React dev server uses
     ],
   });
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('api', {
+    exclude: ['/'],
+  });
   app.useGlobalFilters(new HttpExceptionFilter());
   await app.listen(env.PORT);
 }
