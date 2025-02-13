@@ -38,7 +38,7 @@ const ThreadInput: React.FC<ThreadInputProps> = ({
   useEffect(() => {
     const checkBackendHealth = async () => {
       try {
-        const url = `${import.meta.env.VITE_API_URL}/health`;
+        const url = `${import.meta.env.VITE_API_URL}/api/health`;
         if (import.meta.env.DEV) console.log(`url: ${url}`);
         const response = await fetch(url);
         if (response.ok) {
