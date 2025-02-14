@@ -11,7 +11,6 @@ export class AppController {
   @Get('health')
   @Head('health')
   check() {
-    console.log('got to health');
     return {
       status: 'ok',
       timestamp: new Date().toISOString(),

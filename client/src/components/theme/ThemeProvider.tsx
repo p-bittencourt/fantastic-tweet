@@ -11,14 +11,23 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches;
-    const shouldBeDark =
-      savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+      const shouldBeDark =
+        savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
 
-    setIsDarkMode(shouldBeDark);
+      setIsDarkMode(shouldBeDark);
+    } catch (error) {
+      // Fallback to system preferences if localStorage fails
+      console.warn('Failed to access localStorage:', error);
+      const systemPrefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+      setIsDarkMode(systemPrefersDark);
+    }
   }, []);
 
   // Separate useEffect for DOM manipulation
@@ -26,7 +35,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (isDarkMode === null) return;
 
     document.documentElement.classList.toggle('dark', isDarkMode);
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+
+    try {
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    } catch (error) {
+      console.warn('Failed to save theme preference:', error);
+    }
 
     return () => {
       document.documentElement.classList.remove('dark');

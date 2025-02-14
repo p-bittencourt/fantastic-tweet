@@ -10,9 +10,8 @@ async function bootstrap() {
   });
   app.use(helmet());
   app.enableCors({
-    origin: [
-      process.env.REACT_APP_URL, // or whatever port your React dev server uses
-    ],
+    origin: [process.env.REACT_APP_URL],
+    methods: ['GET', 'POST', 'OPTIONS'],
   });
   app.setGlobalPrefix('api', {
     exclude: ['/'],
